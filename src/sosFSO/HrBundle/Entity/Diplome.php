@@ -5,12 +5,12 @@ namespace sosFSO\HrBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Cadre
+ * Diplome
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\CadreRepository")
+ * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\DiplomeRepository")
  */
-class Cadre
+class Diplome
 {
     /**
      * @var integer
@@ -29,11 +29,11 @@ class Cadre
     private $intitule;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="echelle", type="integer")
+     * @ORM\Column(name="type", type="string", length=255)
      */
-    private $echelle;
+    private $type;
 
     /**
      * @var string
@@ -42,12 +42,7 @@ class Cadre
      */
     private $description;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="sosFSO\HrBundle\Entity\Personne")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $personnes;
-    
+
     /**
      * Get id
      *
@@ -62,7 +57,7 @@ class Cadre
      * Set intitule
      *
      * @param string $intitule
-     * @return Cadre
+     * @return Diplome
      */
     public function setIntitule($intitule)
     {
@@ -82,33 +77,33 @@ class Cadre
     }
 
     /**
-     * Set echelle
+     * Set type
      *
-     * @param integer $echelle
-     * @return Cadre
+     * @param string $type
+     * @return Diplome
      */
-    public function setEchelle($echelle)
+    public function setType($type)
     {
-        $this->echelle = $echelle;
+        $this->type = $type;
     
         return $this;
     }
 
     /**
-     * Get echelle
+     * Get type
      *
-     * @return integer 
+     * @return string 
      */
-    public function getEchelle()
+    public function getType()
     {
-        return $this->echelle;
+        return $this->type;
     }
 
     /**
      * Set description
      *
      * @param string $description
-     * @return Cadre
+     * @return Diplome
      */
     public function setDescription($description)
     {
@@ -125,28 +120,5 @@ class Cadre
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set personnes
-     *
-     * @param \sosFSO\HrBundle\Entity\Personne $personnes
-     * @return Cadre
-     */
-    public function setPersonnes(\sosFSO\HrBundle\Entity\Personne $personnes)
-    {
-        $this->personnes = $personnes;
-    
-        return $this;
-    }
-
-    /**
-     * Get personnes
-     *
-     * @return \sosFSO\HrBundle\Entity\Personne 
-     */
-    public function getPersonnes()
-    {
-        return $this->personnes;
     }
 }

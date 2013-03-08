@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\PersonRepository")
  */
-class Person
+class Personne
 {
     /**
      * @var integer
@@ -105,6 +105,21 @@ class Person
      */
     private $posteBudgetaire;
 
+    
+    /**
+     * @ORM\OneToMany(targetEntity="sosFSO\HrBundle\Entity\Cadre", mappedBy="personnes")
+     */
+    private $cadre;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="sosFSO\HrBundle\Entity\Service", inversedBy="staff")
+     */
+    private $affectation;
+
+     /**
+     * @ORM\ManyToMany(targetEntity="sosFSO\HrBundle\Entity\Diplome")
+     */
+    private $diplomes;
 
     /**
      * Get id
@@ -390,5 +405,113 @@ class Person
     public function getPosteBudgetaire()
     {
         return $this->posteBudgetaire;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cadre = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->affectation = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->diplomes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add cadre
+     *
+     * @param \sosFSO\HrBundle\Entity\Cadre $cadre
+     * @return Personne
+     */
+    public function addCadre(\sosFSO\HrBundle\Entity\Cadre $cadre)
+    {
+        $this->cadre[] = $cadre;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cadre
+     *
+     * @param \sosFSO\HrBundle\Entity\Cadre $cadre
+     */
+    public function removeCadre(\sosFSO\HrBundle\Entity\Cadre $cadre)
+    {
+        $this->cadre->removeElement($cadre);
+    }
+
+    /**
+     * Get cadre
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCadre()
+    {
+        return $this->cadre;
+    }
+
+    /**
+     * Add affectation
+     *
+     * @param \sosFSO\HrBundle\Entity\Service $affectation
+     * @return Personne
+     */
+    public function addAffectation(\sosFSO\HrBundle\Entity\Service $affectation)
+    {
+        $this->affectation[] = $affectation;
+    
+        return $this;
+    }
+
+    /**
+     * Remove affectation
+     *
+     * @param \sosFSO\HrBundle\Entity\Service $affectation
+     */
+    public function removeAffectation(\sosFSO\HrBundle\Entity\Service $affectation)
+    {
+        $this->affectation->removeElement($affectation);
+    }
+
+    /**
+     * Get affectation
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAffectation()
+    {
+        return $this->affectation;
+    }
+
+    /**
+     * Add diplomes
+     *
+     * @param \sosFSO\HrBundle\Entity\Diplome $diplomes
+     * @return Personne
+     */
+    public function addDiplome(\sosFSO\HrBundle\Entity\Diplome $diplomes)
+    {
+        $this->diplomes[] = $diplomes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove diplomes
+     *
+     * @param \sosFSO\HrBundle\Entity\Diplome $diplomes
+     */
+    public function removeDiplome(\sosFSO\HrBundle\Entity\Diplome $diplomes)
+    {
+        $this->diplomes->removeElement($diplomes);
+    }
+
+    /**
+     * Get diplomes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDiplomes()
+    {
+        return $this->diplomes;
     }
 }
