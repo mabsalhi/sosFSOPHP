@@ -1,0 +1,5 @@
+sos_fso_hr:
+    resource: "@sosFSOHrBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
