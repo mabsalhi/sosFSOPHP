@@ -15,6 +15,7 @@ class SituationType extends AbstractType
             ->add('numeroInference')
             ->add('dateEffets')
             ->add('anciennete')
+            ->add('personne')
         ;
     }
 

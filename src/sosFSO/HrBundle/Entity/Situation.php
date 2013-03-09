@@ -49,7 +49,11 @@ class Situation
      */
     private $anciennete;
 
-
+    /**
+     * @ORM\OneToOne(targetEntity="Personne", mappedBy="affectation")
+     */
+    private $personne;
+    
     /**
      * Get id
      *
@@ -150,5 +154,28 @@ class Situation
     public function getAnciennete()
     {
         return $this->anciennete;
+    }
+
+    /**
+     * Set personne
+     *
+     * @param \sosFSO\HrBundle\Entity\Personne $personne
+     * @return Situation
+     */
+    public function setPersonne(\sosFSO\HrBundle\Entity\Personne $personne = null)
+    {
+        $this->personne = $personne;
+    
+        return $this;
+    }
+
+    /**
+     * Get personne
+     *
+     * @return \sosFSO\HrBundle\Entity\Personne 
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
     }
 }

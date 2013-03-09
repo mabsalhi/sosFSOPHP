@@ -44,7 +44,7 @@ class Cadre
 
     /**
      * @ORM\ManyToOne(targetEntity="sosFSO\HrBundle\Entity\Personne")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $personnes;
     
