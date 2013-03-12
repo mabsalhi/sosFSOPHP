@@ -8,10 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
  * Person
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\PersonRepository")
+ * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\PersonneRepository")
  */
-class Personne
-{
+class Personne {
+
     /**
      * @var integer
      *
@@ -105,29 +105,27 @@ class Personne
      */
     private $posteBudgetaire;
 
-    
-    /**
-     * @ORM\OneToMany(targetEntity="sosFSO\HrBundle\Entity\Cadre", mappedBy="personnes")
-     */
-    private $cadre;
-    
     /**
      * @ORM\ManyToMany(targetEntity="sosFSO\HrBundle\Entity\Service", inversedBy="staff")
      */
     private $affectation;
 
-     /**
+    /**
      * @ORM\ManyToMany(targetEntity="sosFSO\HrBundle\Entity\Diplome")
      */
     private $diplomes;
 
     /**
+     * @ORM\OneToMany(targetEntity="Situation", mappedBy="personne")
+     */
+    protected $situations;
+    
+    /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -137,10 +135,9 @@ class Personne
      * @param string $nom
      * @return Person
      */
-    public function setNom($nom)
-    {
+    public function setNom($nom) {
         $this->nom = $nom;
-    
+
         return $this;
     }
 
@@ -149,8 +146,7 @@ class Personne
      *
      * @return string 
      */
-    public function getNom()
-    {
+    public function getNom() {
         return $this->nom;
     }
 
@@ -160,10 +156,9 @@ class Personne
      * @param string $prenom
      * @return Person
      */
-    public function setPrenom($prenom)
-    {
+    public function setPrenom($prenom) {
         $this->prenom = $prenom;
-    
+
         return $this;
     }
 
@@ -172,8 +167,7 @@ class Personne
      *
      * @return string 
      */
-    public function getPrenom()
-    {
+    public function getPrenom() {
         return $this->prenom;
     }
 
@@ -183,10 +177,9 @@ class Personne
      * @param string $prenom2
      * @return Person
      */
-    public function setPrenom2($prenom2)
-    {
+    public function setPrenom2($prenom2) {
         $this->prenom2 = $prenom2;
-    
+
         return $this;
     }
 
@@ -195,8 +188,7 @@ class Personne
      *
      * @return string 
      */
-    public function getPrenom2()
-    {
+    public function getPrenom2() {
         return $this->prenom2;
     }
 
@@ -206,10 +198,9 @@ class Personne
      * @param string $cin
      * @return Person
      */
-    public function setCin($cin)
-    {
+    public function setCin($cin) {
         $this->cin = $cin;
-    
+
         return $this;
     }
 
@@ -218,8 +209,7 @@ class Personne
      *
      * @return string 
      */
-    public function getCin()
-    {
+    public function getCin() {
         return $this->cin;
     }
 
@@ -229,10 +219,9 @@ class Personne
      * @param integer $som
      * @return Person
      */
-    public function setSom($som)
-    {
+    public function setSom($som) {
         $this->som = $som;
-    
+
         return $this;
     }
 
@@ -241,8 +230,7 @@ class Personne
      *
      * @return integer 
      */
-    public function getSom()
-    {
+    public function getSom() {
         return $this->som;
     }
 
@@ -252,10 +240,9 @@ class Personne
      * @param string $nomAr
      * @return Person
      */
-    public function setNomAr($nomAr)
-    {
+    public function setNomAr($nomAr) {
         $this->nomAr = $nomAr;
-    
+
         return $this;
     }
 
@@ -264,8 +251,7 @@ class Personne
      *
      * @return string 
      */
-    public function getNomAr()
-    {
+    public function getNomAr() {
         return $this->nomAr;
     }
 
@@ -275,10 +261,9 @@ class Personne
      * @param string $prenomAr
      * @return Person
      */
-    public function setPrenomAr($prenomAr)
-    {
+    public function setPrenomAr($prenomAr) {
         $this->prenomAr = $prenomAr;
-    
+
         return $this;
     }
 
@@ -287,8 +272,7 @@ class Personne
      *
      * @return string 
      */
-    public function getPrenomAr()
-    {
+    public function getPrenomAr() {
         return $this->prenomAr;
     }
 
@@ -298,10 +282,9 @@ class Personne
      * @param \DateTime $dateNaissance
      * @return Person
      */
-    public function setDateNaissance($dateNaissance)
-    {
+    public function setDateNaissance($dateNaissance) {
         $this->dateNaissance = $dateNaissance;
-    
+
         return $this;
     }
 
@@ -310,8 +293,7 @@ class Personne
      *
      * @return \DateTime 
      */
-    public function getDateNaissance()
-    {
+    public function getDateNaissance() {
         return $this->dateNaissance;
     }
 
@@ -321,10 +303,9 @@ class Personne
      * @param string $lieuNaissance
      * @return Person
      */
-    public function setLieuNaissance($lieuNaissance)
-    {
+    public function setLieuNaissance($lieuNaissance) {
         $this->lieuNaissance = $lieuNaissance;
-    
+
         return $this;
     }
 
@@ -333,8 +314,7 @@ class Personne
      *
      * @return string 
      */
-    public function getLieuNaissance()
-    {
+    public function getLieuNaissance() {
         return $this->lieuNaissance;
     }
 
@@ -344,10 +324,9 @@ class Personne
      * @param string $etatMatrimonial
      * @return Person
      */
-    public function setEtatMatrimonial($etatMatrimonial)
-    {
+    public function setEtatMatrimonial($etatMatrimonial) {
         $this->etatMatrimonial = $etatMatrimonial;
-    
+
         return $this;
     }
 
@@ -356,8 +335,7 @@ class Personne
      *
      * @return string 
      */
-    public function getEtatMatrimonial()
-    {
+    public function getEtatMatrimonial() {
         return $this->etatMatrimonial;
     }
 
@@ -367,10 +345,9 @@ class Personne
      * @param integer $telephonne
      * @return Person
      */
-    public function setTelephonne($telephonne)
-    {
+    public function setTelephonne($telephonne) {
         $this->telephonne = $telephonne;
-    
+
         return $this;
     }
 
@@ -379,8 +356,7 @@ class Personne
      *
      * @return integer 
      */
-    public function getTelephonne()
-    {
+    public function getTelephonne() {
         return $this->telephonne;
     }
 
@@ -390,10 +366,9 @@ class Personne
      * @param integer $posteBudgetaire
      * @return Person
      */
-    public function setPosteBudgetaire($posteBudgetaire)
-    {
+    public function setPosteBudgetaire($posteBudgetaire) {
         $this->posteBudgetaire = $posteBudgetaire;
-    
+
         return $this;
     }
 
@@ -402,30 +377,29 @@ class Personne
      *
      * @return integer 
      */
-    public function getPosteBudgetaire()
-    {
+    public function getPosteBudgetaire() {
         return $this->posteBudgetaire;
     }
+
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
+        $this->situations = new \Doctrine\Common\Collections\ArrayCollection();
         $this->cadre = new \Doctrine\Common\Collections\ArrayCollection();
         $this->affectation = new \Doctrine\Common\Collections\ArrayCollection();
         $this->diplomes = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add cadre
      *
      * @param \sosFSO\HrBundle\Entity\Cadre $cadre
      * @return Personne
      */
-    public function addCadre(\sosFSO\HrBundle\Entity\Cadre $cadre)
-    {
+    public function addCadre(\sosFSO\HrBundle\Entity\Cadre $cadre) {
         $this->cadre[] = $cadre;
-    
+
         return $this;
     }
 
@@ -434,8 +408,7 @@ class Personne
      *
      * @param \sosFSO\HrBundle\Entity\Cadre $cadre
      */
-    public function removeCadre(\sosFSO\HrBundle\Entity\Cadre $cadre)
-    {
+    public function removeCadre(\sosFSO\HrBundle\Entity\Cadre $cadre) {
         $this->cadre->removeElement($cadre);
     }
 
@@ -444,8 +417,7 @@ class Personne
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCadre()
-    {
+    public function getCadre() {
         return $this->cadre;
     }
 
@@ -455,10 +427,9 @@ class Personne
      * @param \sosFSO\HrBundle\Entity\Service $affectation
      * @return Personne
      */
-    public function addAffectation(\sosFSO\HrBundle\Entity\Service $affectation)
-    {
+    public function addAffectation(\sosFSO\HrBundle\Entity\Service $affectation) {
         $this->affectation[] = $affectation;
-    
+
         return $this;
     }
 
@@ -467,8 +438,7 @@ class Personne
      *
      * @param \sosFSO\HrBundle\Entity\Service $affectation
      */
-    public function removeAffectation(\sosFSO\HrBundle\Entity\Service $affectation)
-    {
+    public function removeAffectation(\sosFSO\HrBundle\Entity\Service $affectation) {
         $this->affectation->removeElement($affectation);
     }
 
@@ -477,8 +447,7 @@ class Personne
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getAffectation()
-    {
+    public function getAffectation() {
         return $this->affectation;
     }
 
@@ -488,10 +457,9 @@ class Personne
      * @param \sosFSO\HrBundle\Entity\Diplome $diplomes
      * @return Personne
      */
-    public function addDiplome(\sosFSO\HrBundle\Entity\Diplome $diplomes)
-    {
+    public function addDiplome(\sosFSO\HrBundle\Entity\Diplome $diplomes) {
         $this->diplomes[] = $diplomes;
-    
+
         return $this;
     }
 
@@ -500,8 +468,7 @@ class Personne
      *
      * @param \sosFSO\HrBundle\Entity\Diplome $diplomes
      */
-    public function removeDiplome(\sosFSO\HrBundle\Entity\Diplome $diplomes)
-    {
+    public function removeDiplome(\sosFSO\HrBundle\Entity\Diplome $diplomes) {
         $this->diplomes->removeElement($diplomes);
     }
 
@@ -510,8 +477,13 @@ class Personne
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getDiplomes()
-    {
+    public function getDiplomes() {
         return $this->diplomes;
     }
+
+   
+        public function __toString() {
+        return $this->getSom();
+    }
+
 }

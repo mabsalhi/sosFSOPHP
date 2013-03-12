@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\DiplomeRepository")
  */
-class Diplome
-{
+class Diplome {
+
     /**
      * @var integer
      *
@@ -27,7 +27,14 @@ class Diplome
      * @ORM\Column(name="intitule", type="string", length=255)
      */
     private $intitule;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="specialite", type="string", length=255)
+     */
+    private $specialite;
+    
     /**
      * @var string
      *
@@ -42,14 +49,12 @@ class Diplome
      */
     private $description;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -59,10 +64,9 @@ class Diplome
      * @param string $intitule
      * @return Diplome
      */
-    public function setIntitule($intitule)
-    {
+    public function setIntitule($intitule) {
         $this->intitule = $intitule;
-    
+
         return $this;
     }
 
@@ -71,8 +75,7 @@ class Diplome
      *
      * @return string 
      */
-    public function getIntitule()
-    {
+    public function getIntitule() {
         return $this->intitule;
     }
 
@@ -82,10 +85,9 @@ class Diplome
      * @param string $type
      * @return Diplome
      */
-    public function setType($type)
-    {
+    public function setType($type) {
         $this->type = $type;
-    
+
         return $this;
     }
 
@@ -94,8 +96,7 @@ class Diplome
      *
      * @return string 
      */
-    public function getType()
-    {
+    public function getType() {
         return $this->type;
     }
 
@@ -105,10 +106,9 @@ class Diplome
      * @param string $description
      * @return Diplome
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
-    
+
         return $this;
     }
 
@@ -117,8 +117,12 @@ class Diplome
      *
      * @return string 
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
+
+    public function __toString() {
+        return $this->getIntitule();
+    }
+
 }

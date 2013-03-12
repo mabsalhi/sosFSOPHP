@@ -43,16 +43,25 @@ class Situation
     private $dateEffets;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="anciennete", type="integer")
+     * @ORM\Column(name="remarques", type="string", length=255)
      */
-    private $anciennete;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Personne", mappedBy="affectation")
+    private $remarques;
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="sosFSO\HrBundle\Entity\Personne")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $personne;
+    
+    /**
+     * Unidirectional - Many-To-One
+     *
+     * @ManyToOne(targetEntity="Cadre")
+     */
+    private $cadre;
+    
     
     /**
      * Get id
@@ -177,5 +186,9 @@ class Situation
     public function getPersonne()
     {
         return $this->personne;
+    }
+    
+    public function __toString() {
+        return $this->getPersonne()->getSom();
     }
 }

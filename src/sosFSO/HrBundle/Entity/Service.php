@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\ServiceRepository")
  */
-class Service
-{
+class Service {
+
     /**
      * @var integer
      *
@@ -39,14 +39,13 @@ class Service
      * @ORM\ManyToMany(targetEntity="Personne", mappedBy="affectation")
      */
     private $staff;
-    
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -56,10 +55,9 @@ class Service
      * @param string $intitule
      * @return Service
      */
-    public function setIntitule($intitule)
-    {
+    public function setIntitule($intitule) {
         $this->intitule = $intitule;
-    
+
         return $this;
     }
 
@@ -68,8 +66,7 @@ class Service
      *
      * @return string 
      */
-    public function getIntitule()
-    {
+    public function getIntitule() {
         return $this->intitule;
     }
 
@@ -79,10 +76,9 @@ class Service
      * @param string $description
      * @return Service
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
-    
+
         return $this;
     }
 
@@ -91,28 +87,26 @@ class Service
      *
      * @return string 
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
+
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->staff = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add staff
      *
      * @param \sosFSO\HrBundle\Entity\Personne $staff
      * @return Service
      */
-    public function addStaff(\sosFSO\HrBundle\Entity\Personne $staff)
-    {
+    public function addStaff(\sosFSO\HrBundle\Entity\Personne $staff) {
         $this->staff[] = $staff;
-    
+
         return $this;
     }
 
@@ -121,8 +115,7 @@ class Service
      *
      * @param \sosFSO\HrBundle\Entity\Personne $staff
      */
-    public function removeStaff(\sosFSO\HrBundle\Entity\Personne $staff)
-    {
+    public function removeStaff(\sosFSO\HrBundle\Entity\Personne $staff) {
         $this->staff->removeElement($staff);
     }
 
@@ -131,8 +124,12 @@ class Service
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getStaff()
-    {
+    public function getStaff() {
         return $this->staff;
     }
+
+    public function __toString() {
+        return $this->getIntitule();
+    }
+
 }

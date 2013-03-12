@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="sosFSO\HrBundle\Entity\CadreRepository")
  */
-class Cadre
-{
+class Cadre {
+
     /**
      * @var integer
      *
@@ -42,19 +42,14 @@ class Cadre
      */
     private $description;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="sosFSO\HrBundle\Entity\Personne")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $personnes;
-    
+   
+
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -64,10 +59,9 @@ class Cadre
      * @param string $intitule
      * @return Cadre
      */
-    public function setIntitule($intitule)
-    {
+    public function setIntitule($intitule) {
         $this->intitule = $intitule;
-    
+
         return $this;
     }
 
@@ -76,8 +70,7 @@ class Cadre
      *
      * @return string 
      */
-    public function getIntitule()
-    {
+    public function getIntitule() {
         return $this->intitule;
     }
 
@@ -87,10 +80,9 @@ class Cadre
      * @param integer $echelle
      * @return Cadre
      */
-    public function setEchelle($echelle)
-    {
+    public function setEchelle($echelle) {
         $this->echelle = $echelle;
-    
+
         return $this;
     }
 
@@ -99,8 +91,7 @@ class Cadre
      *
      * @return integer 
      */
-    public function getEchelle()
-    {
+    public function getEchelle() {
         return $this->echelle;
     }
 
@@ -110,10 +101,9 @@ class Cadre
      * @param string $description
      * @return Cadre
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
-    
+
         return $this;
     }
 
@@ -122,8 +112,7 @@ class Cadre
      *
      * @return string 
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -133,10 +122,9 @@ class Cadre
      * @param \sosFSO\HrBundle\Entity\Personne $personnes
      * @return Cadre
      */
-    public function setPersonnes(\sosFSO\HrBundle\Entity\Personne $personnes)
-    {
+    public function setPersonnes(\sosFSO\HrBundle\Entity\Personne $personnes) {
         $this->personnes = $personnes;
-    
+
         return $this;
     }
 
@@ -145,8 +133,12 @@ class Cadre
      *
      * @return \sosFSO\HrBundle\Entity\Personne 
      */
-    public function getPersonnes()
-    {
+    public function getPersonnes() {
         return $this->personnes;
     }
+
+    public function __toString() {
+        return $this->getIntitule();
+    }
+
 }
