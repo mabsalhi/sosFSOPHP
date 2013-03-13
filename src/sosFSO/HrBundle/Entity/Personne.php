@@ -493,7 +493,9 @@ class Personne {
 
    
         public function __toString() {
-        return $this->getSom();
+            $staff = $this->getNom();
+            $staff = $staff." ".$this->getPrenom();
+        return $staff;
     }
 
 }
