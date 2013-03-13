@@ -106,18 +106,28 @@ class Personne {
     private $posteBudgetaire;
 
     /**
-     * @ORM\ManyToMany(targetEntity="sosFSO\HrBundle\Entity\Service", inversedBy="staff")
+     * @ORM\ManyToMany(targetEntity="Service", inversedBy="staff")
+     * @JoinTable(name="staff_service")
      */
     private $affectation;
 
     /**
-     * @ORM\ManyToMany(targetEntity="sosFSO\HrBundle\Entity\Diplome")
+     * @ORM\ManyToMany(targetEntity="Diplome")
+     * @ORM\JoinTable(
+     * name="diplomes_personne", 
+     * joinColumns={@ORM\JoinColumn(name="personne_id", referencedColumnName="id")},
+     * inverseJoinColumns={@ORM\JoinColumn(name="diplome_id", referencedColumnName="id")}
+     * )
      */
     private $diplomes;
 
     /**
-     * @ORM\OneToMany(targetEntity="Situation", mappedBy="personne")
-     */
+     * @ORM\ManyToMany(targetEntity="Situation", mappedBy="personne")
+     * @ORM\JoinTable(name="avancement_personne",
+     *      joinColumns={@ORM\JoinColumn(name="personne_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="situation_id", referencedColumnName="id", unique=true)}
+     *      )
+     **/
     protected $situations;
     
     /**

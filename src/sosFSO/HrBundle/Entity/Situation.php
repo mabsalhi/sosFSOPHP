@@ -49,16 +49,9 @@ class Situation
      */
     private $remarques;
     
-     /**
-     * @ORM\ManyToOne(targetEntity="sosFSO\HrBundle\Entity\Personne")
-     * @ORM\JoinColumn(nullable=true)
-     */
-    private $personne;
-    
     /**
-     * Unidirectional - Many-To-One
-     *
-     * @ManyToOne(targetEntity="Cadre")
+     * @ORM/ManyToOne(targetEntity="Cadre")
+     * @JoinColumn(name="cadre_id", referencedColumnName="id")
      */
     private $cadre;
     
