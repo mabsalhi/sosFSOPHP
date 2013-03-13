@@ -50,9 +50,8 @@ class Situation
     private $remarques;
     
     /**
-     * @ORM/ManyToOne(targetEntity="Cadre")
-     * @JoinColumn(name="cadre_id", referencedColumnName="id")
-     */
+     * @ORM\ManyToOne(targetEntity="Cadre")
+     **/
     private $cadre;
     
     

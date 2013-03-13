@@ -13,7 +13,8 @@ class ServiceType extends AbstractType
         $builder
             ->add('intitule')
             ->add('description')
-            ;
+            ->add('staff')
+        ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

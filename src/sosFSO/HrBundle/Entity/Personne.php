@@ -107,7 +107,7 @@ class Personne {
 
     /**
      * @ORM\ManyToMany(targetEntity="Service", inversedBy="staff")
-     * @JoinTable(name="staff_service")
+     * @ORM\JoinTable(name="staff_service")
      */
     private $affectation;
 

@@ -12,6 +12,7 @@ class DiplomeType extends AbstractType
     {
         $builder
             ->add('intitule')
+            ->add('specialite')
             ->add('type')
             ->add('description')
         ;

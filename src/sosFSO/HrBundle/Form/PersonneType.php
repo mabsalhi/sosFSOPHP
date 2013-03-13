@@ -25,6 +25,7 @@ class PersonneType extends AbstractType
             ->add('posteBudgetaire')
             ->add('affectation')
             ->add('diplomes')
+            ->add('situations')
         ;
     }
 

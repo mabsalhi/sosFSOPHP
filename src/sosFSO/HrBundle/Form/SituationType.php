@@ -14,8 +14,8 @@ class SituationType extends AbstractType
             ->add('echelon')
             ->add('numeroInference')
             ->add('dateEffets')
-            ->add('anciennete')
-            ->add('personne')
+            ->add('remarques')
+            ->add('cadre')
         ;
     }
 

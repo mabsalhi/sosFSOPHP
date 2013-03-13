@@ -10,7 +10,7 @@
                 <th>Echelon</th>
                 <th>Numeroinference</th>
                 <th>Dateeffets</th>
-                <th>Anciennete</th>
+                <th>Remarques</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                 <td>{{ entity.echelon }}</td>
                 <td>{{ entity.numeroInference }}</td>
                 <td>{% if entity.dateEffets %}{{ entity.dateEffets|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.anciennete }}</td>
+                <td>{{ entity.remarques }}</td>
                 <td>
                 <ul>
                     <li>

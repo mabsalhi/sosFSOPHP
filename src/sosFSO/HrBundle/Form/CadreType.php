@@ -14,7 +14,6 @@ class CadreType extends AbstractType
             ->add('intitule')
             ->add('echelle')
             ->add('description')
-            ->add('personnes')
         ;
     }
 
