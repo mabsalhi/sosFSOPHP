@@ -57,8 +57,17 @@
                 <th>Postebudgetaire</th>
                 <td>{{ entity.posteBudgetaire }}</td>
             </tr>
+            
         </tbody>
     </table>
+    
+    <div id="diplomes">
+        {% for diplome in entity.diplomes %}
+            <h2>{{ entity.diplomes.intitule }}</h2>
+            <h2>{{ entity.diplomes.specialite }}</h2>
+            <h2>{{ entity.diplomes.description }}</h2>
+            {% endfor %}
+    </div>
 
         <ul class="record_actions">
     <li>
