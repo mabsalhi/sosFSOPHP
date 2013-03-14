@@ -498,4 +498,37 @@ class Personne {
         return $staff;
     }
 
+
+    /**
+     * Add situations
+     *
+     * @param \sosFSO\HrBundle\Entity\Situation $situations
+     * @return Personne
+     */
+    public function addSituation(\sosFSO\HrBundle\Entity\Situation $situations)
+    {
+        $this->situations[] = $situations;
+    
+        return $this;
+    }
+
+    /**
+     * Remove situations
+     *
+     * @param \sosFSO\HrBundle\Entity\Situation $situations
+     */
+    public function removeSituation(\sosFSO\HrBundle\Entity\Situation $situations)
+    {
+        $this->situations->removeElement($situations);
+    }
+
+    /**
+     * Get situations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSituations()
+    {
+        return $this->situations;
+    }
 }

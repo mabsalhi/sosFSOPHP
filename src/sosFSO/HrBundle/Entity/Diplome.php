@@ -125,4 +125,27 @@ class Diplome {
         return $this->getIntitule();
     }
 
+
+    /**
+     * Set specialite
+     *
+     * @param string $specialite
+     * @return Diplome
+     */
+    public function setSpecialite($specialite)
+    {
+        $this->specialite = $specialite;
+    
+        return $this;
+    }
+
+    /**
+     * Get specialite
+     *
+     * @return string 
+     */
+    public function getSpecialite()
+    {
+        return $this->specialite;
+    }
 }

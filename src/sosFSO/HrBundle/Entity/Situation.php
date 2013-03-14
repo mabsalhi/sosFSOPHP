@@ -183,4 +183,50 @@ class Situation
     public function __toString() {
         return $this->getPersonne()->getSom();
     }
+
+    /**
+     * Set remarques
+     *
+     * @param string $remarques
+     * @return Situation
+     */
+    public function setRemarques($remarques)
+    {
+        $this->remarques = $remarques;
+    
+        return $this;
+    }
+
+    /**
+     * Get remarques
+     *
+     * @return string 
+     */
+    public function getRemarques()
+    {
+        return $this->remarques;
+    }
+
+    /**
+     * Set cadre
+     *
+     * @param \sosFSO\HrBundle\Entity\Cadre $cadre
+     * @return Situation
+     */
+    public function setCadre(\sosFSO\HrBundle\Entity\Cadre $cadre = null)
+    {
+        $this->cadre = $cadre;
+    
+        return $this;
+    }
+
+    /**
+     * Get cadre
+     *
+     * @return \sosFSO\HrBundle\Entity\Cadre 
+     */
+    public function getCadre()
+    {
+        return $this->cadre;
+    }
 }
