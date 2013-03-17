@@ -53,28 +53,13 @@
                 <th>Telephonne</th>
                 <td>{{ entity.telephonne }}</td>
             </tr>
-            
+            <tr>
+                <th>Postebudgetaire</th>
+                <td>{{ entity.posteBudgetaire }}</td>
+            </tr>
         </tbody>
     </table>
-    
-    <div id="diplomes">
-         {% for diplome in entity.diplomes %}
-            {{ diplome.intitule }}{% if not loop.last %}{% endif %},
-            {{ diplome.specialite }}{% if not loop.last %}{% endif %},
-            {{ diplome.type }}{% if not loop.last %}{% endif %},
-            {{ diplome.description }}{% if not loop.last %}{% endif %},
-            <br/><hr>
-            {% endfor %}
-    </div>
-<hr>
-    <div id="affectation">
-        {% for affectation in entity.affectation %}
-            {{ affectation.intitule }}{% if not loop.last %}{% endif %},
-            {{ affectation.description }}{% if not loop.last %}{% endif %},<br/><hr>
-            {% endfor %}
-            
-    </div>
-    
+
         <ul class="record_actions">
     <li>
         <a href="{{ path('personne') }}">

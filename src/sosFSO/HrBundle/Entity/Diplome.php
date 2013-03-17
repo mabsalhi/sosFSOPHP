@@ -38,14 +38,14 @@ class Diplome {
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", nullable = true, length=255)
      */
     private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", nullable = true, type="text")
      */
     private $description;
 

@@ -38,7 +38,7 @@ class Personne {
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom2", type="string", length=255)
+     * @ORM\Column(name="prenom2", type="string", nullable = true, length=255)
      */
     private $prenom2;
 
@@ -59,42 +59,42 @@ class Personne {
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_ar", type="string", length=255)
+     * @ORM\Column(name="nom_ar", type="string", nullable = true, length=255)
      */
     private $nomAr;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prenom_ar", type="string", length=255)
+     * @ORM\Column(name="prenom_ar", type="string", nullable = true, length=255)
      */
     private $prenomAr;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_naissance", type="date")
+     * @ORM\Column(name="date_naissance", nullable = true, type="date")
      */
     private $dateNaissance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lieu_naissance", type="string", length=255)
+     * @ORM\Column(name="lieu_naissance", nullable = true, type="string", length=255)
      */
     private $lieuNaissance;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etat_matrimonial", type="string", length=255)
+     * @ORM\Column(name="etat_matrimonial", nullable = true, type="string", length=255)
      */
     private $etatMatrimonial;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="telephonne", type="integer")
+     * @ORM\Column(name="telephonne", nullable = true, type="integer")
      */
     private $telephonne;
 
@@ -106,8 +106,7 @@ class Personne {
     private $posteBudgetaire;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Service", inversedBy="staff")
-     * @ORM\JoinTable(name="staff_service")
+     * @ORM\OneToMany(targetEntity="Affectation", mappedBy="personne")
      */
     private $affectation;
 

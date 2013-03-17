@@ -31,7 +31,7 @@ class Situation
     /**
      * @var integer
      *
-     * @ORM\Column(name="numero_inference", type="integer")
+     * @ORM\Column(name="numero_inference", nullable = true, type="integer")
      */
     private $numeroInference;
 
@@ -45,7 +45,7 @@ class Situation
     /**
      * @var string
      *
-     * @ORM\Column(name="remarques", type="string", length=255)
+     * @ORM\Column(name="remarques", type="string", nullable = true, length=255)
      */
     private $remarques;
     

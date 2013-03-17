@@ -49,7 +49,18 @@ class Affectation
      */
     private $remarques;
 
-
+     /**
+     * @ORM\ManyToOne(targetEntity="Personne", inversedBy="affectation")
+     * @ORM\JoinColumn(name="personne_id", referencedColumnName="id")
+     **/
+    private $personne;
+     
+    /**
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="staff")
+     **/
+    private $service;
+    
+    
     /**
      * Get id
      *
@@ -150,5 +161,68 @@ class Affectation
     public function getRemarques()
     {
         return $this->remarques;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->service = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Set personne
+     *
+     * @param \sosFSO\HrBundle\Entity\Personne $personne
+     * @return Affectation
+     */
+    public function setPersonne(\sosFSO\HrBundle\Entity\Personne $personne = null)
+    {
+        $this->personne = $personne;
+    
+        return $this;
+    }
+
+    /**
+     * Get personne
+     *
+     * @return \sosFSO\HrBundle\Entity\Personne 
+     */
+    public function getPersonne()
+    {
+        return $this->personne;
+    }
+
+    /**
+     * Add service
+     *
+     * @param \sosFSO\HrBundle\Entity\Service $service
+     * @return Affectation
+     */
+    public function addService(\sosFSO\HrBundle\Entity\Service $service)
+    {
+        $this->service[] = $service;
+    
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param \sosFSO\HrBundle\Entity\Service $service
+     */
+    public function removeService(\sosFSO\HrBundle\Entity\Service $service)
+    {
+        $this->service->removeElement($service);
+    }
+
+    /**
+     * Get service
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getService()
+    {
+        return $this->service;
     }
 }

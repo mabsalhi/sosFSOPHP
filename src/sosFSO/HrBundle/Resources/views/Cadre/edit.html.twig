@@ -1,28 +1,31 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Cadre edit</h1>
+    <h1>Modifier cadre</h1>
 
-    <form action="{{ path('cadre_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+    <form action="{{ path('cadre_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }} class="form-horizontal">
         <input type="hidden" name="_method" value="PUT" />
         {{ form_widget(edit_form) }}
         <p>
-            <button type="submit">Edit</button>
+            <button type="submit" class="btn">
+                <i class="icon-edit"></i>
+                Modifier
+            </button>
         </p>
     </form>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('cadre') }}">
-            Back to the list
+        <p>
+            <a href="{{ path('cadre') }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour a la liste des cadres
         </a>
-    </li>
-    <li>
         <form action="{{ path('cadre_delete', { 'id': entity.id }) }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn-danger">
+            <i class="icon-trash"></i>
+                Supprimer
+            </button>
         </form>
-    </li>
-</ul>
+        </p>
 {% endblock %}

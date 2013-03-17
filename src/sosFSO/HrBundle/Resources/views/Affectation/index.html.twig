@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Affectation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Dateaffectation</th>
+                <th>Poste</th>
+                <th>Datedetachement</th>
+                <th>Remarques</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('affectation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.dateAffectation %}{{ entity.dateAffectation|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.poste }}</td>
+                <td>{% if entity.dateDetachement %}{{ entity.dateDetachement|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.remarques }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('affectation_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('affectation_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('affectation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -35,10 +35,12 @@ class Service {
      */
     private $description;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Personne", mappedBy="affectation")
-     */
+   /**
+     * @ORM\ManyToOne(targetEntity="Affectation", inversedBy="service")
+     * @ORM\JoinColumn(name="affectation_id", referencedColumnName="id")
+     **/
     private $staff;
+   
 
     /**
      * Get id
@@ -132,4 +134,17 @@ class Service {
         return $this->getIntitule();
     }
 
+
+    /**
+     * Set staff
+     *
+     * @param \sosFSO\HrBundle\Entity\Affectation $staff
+     * @return Service
+     */
+    public function setStaff(\sosFSO\HrBundle\Entity\Affectation $staff = null)
+    {
+        $this->staff = $staff;
+    
+        return $this;
+    }
 }

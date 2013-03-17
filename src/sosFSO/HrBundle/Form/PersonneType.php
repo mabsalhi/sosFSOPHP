@@ -23,9 +23,8 @@ class PersonneType extends AbstractType
             ->add('etatMatrimonial')
             ->add('telephonne')
             ->add('posteBudgetaire')
-            ->add('affectation')
             ->add('diplomes')
-            
+            ->add('situations')
         ;
     }
 
