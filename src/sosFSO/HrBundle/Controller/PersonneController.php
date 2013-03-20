@@ -207,4 +207,9 @@ class PersonneController extends Controller
             ->getForm()
         ;
     }
+    
+    public function updateDataAction(){
+        $request = $this->container->get('request');
+        
+    }
 }

@@ -1,5 +1,5 @@
 {
-    "hash": "68b01048805fca5c68d0c6090b64b930",
+    "hash": "0a20a43e54f994543c11dc675ed62b50",
     "packages": [
         {
             "name": "doctrine/common",
@@ -272,6 +272,72 @@
                 "orm"
             ],
             "time": "2013-01-07 20:05:04"
+        },
+        {
+            "name": "genemu/form-bundle",
+            "version": "v2.1.2",
+            "target-dir": "Genemu/Bundle/FormBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/genemu/GenemuFormBundle.git",
+                "reference": "v2.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/genemu/GenemuFormBundle/zipball/v2.1.2",
+                "reference": "v2.1.2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/form": ">=2.1,<2.3-dev",
+                "symfony/framework-bundle": ">=2.1,<2.3-dev"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "1.*",
+                "doctrine/mongodb-odm-bundle": "*",
+                "doctrine/orm": "2.*",
+                "propel/propel-bundle": "*",
+                "symfony/finder": "2.*"
+            },
+            "suggest": {
+                "propel/propel-bundle": "*",
+                "symfony/doctrine-bundle": "1.*",
+                "symfony/finder": "2.*",
+                "symfony/mongodb-odm-bundle": "2.*",
+                "symfony/twig-bridge": "2.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Genemu\\Bundle\\FormBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Chauvel",
+                    "email": "olivier@generation-multiple.com"
+                },
+                {
+                    "name": "Community contributions",
+                    "homepage": "https://github.com/genemu/GenemuFormBundle/contributors"
+                }
+            ],
+            "description": "Extra Form",
+            "keywords": [
+                "extra form",
+                "form"
+            ],
+            "time": "2013-02-21 21:09:51"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -632,16 +698,16 @@
         },
         {
             "name": "kriswallsmith/assetic",
-            "version": "v1.1.0-alpha3",
+            "version": "v1.1.0-alpha4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kriswallsmith/assetic.git",
-                "reference": "v1.1.0-alpha3"
+                "reference": "v1.1.0-alpha4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.0-alpha3",
-                "reference": "v1.1.0-alpha3",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/v1.1.0-alpha4",
+                "reference": "v1.1.0-alpha4",
                 "shasum": ""
             },
             "require": {
@@ -699,7 +765,7 @@
                 "compression",
                 "minification"
             ],
-            "time": "2013-02-18 16:17:57"
+            "time": "2013-02-24 17:22:20"
         },
         {
             "name": "monolog/monolog",
@@ -1317,16 +1383,16 @@
         },
         {
             "name": "twig/extensions",
-            "version": "v1.0.0-alpha",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fabpot/Twig-extensions",
-                "reference": "v1.0.0-alpha"
+                "url": "https://github.com/fabpot/Twig-extensions.git",
+                "reference": "v1.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig-extensions/zipball/v1.0.0-alpha",
-                "reference": "v1.0.0-alpha",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/v1.0.0",
+                "reference": "v1.0.0",
                 "shasum": ""
             },
             "require": {
@@ -1360,7 +1426,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2012-08-28 08:04:23"
+            "time": "2013-02-28 14:21:30"
         },
         {
             "name": "twig/twig",
@@ -1412,12 +1478,20 @@
             "time": "2013-02-09 18:21:53"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
     "minimum-stability": "alpha",
     "stability-flags": [
+
+    ],
+    "platform": {
+        "php": ">=5.3.3"
+    },
+    "platform-dev": [
 
     ]
 }

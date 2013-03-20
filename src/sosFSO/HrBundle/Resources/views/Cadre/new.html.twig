@@ -3,19 +3,18 @@
 {% block body -%}
     <h1>Cadre creation</h1>
 
-    <form action="{{ path('cadre_create') }}" method="post" {{ form_enctype(form) }} class="form form-horizontal">
-       
-{{ form_widget(form) }}
-
+    <form action="{{ path('cadre_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
         <p>
-            <button type="submit" class="btn btn-primary">Créer</button>
+            <button type="submit">Create</button>
         </p>
     </form>
 
-       <p>
-           <a href="{{ path('cadre') }}" class="btn">
-            <i class="icon-chevron-left"></i>
-            Retour a la liste des cadres
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cadre') }}">
+            Back to the list
         </a>
-           </p>  
+    </li>
+</ul>
 {% endblock %}

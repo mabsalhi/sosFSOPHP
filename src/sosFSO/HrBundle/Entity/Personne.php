@@ -83,7 +83,21 @@ class Personne {
      * @ORM\Column(name="lieu_naissance", nullable = true, type="string", length=255)
      */
     private $lieuNaissance;
+    
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="sexe", nullable = true, type="boolean")
+     */
+    private $sexe;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="blob")
+     */
+    private $photo;
+    
     /**
      * @var string
      *
@@ -529,5 +543,51 @@ class Personne {
     public function getSituations()
     {
         return $this->situations;
+    }
+
+    /**
+     * Set sexe
+     *
+     * @param boolean $sexe
+     * @return Personne
+     */
+    public function setSexe($sexe)
+    {
+        $this->sexe = $sexe;
+    
+        return $this;
+    }
+
+    /**
+     * Get sexe
+     *
+     * @return boolean 
+     */
+    public function getSexe()
+    {
+        return $this->sexe;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return Personne
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

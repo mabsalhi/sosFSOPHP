@@ -11,11 +11,21 @@ class AffectationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateAffectation')
+            ->add('dateAffectation','date',array(
+	            'widget' => 'single_text',
+	            'format' => 'dd-MM-yyyy',
+	            'attr' => array('class' => 'date')
+	        ))
             ->add('poste')
-            ->add('dateDetachement')
+            ->add('dateDetachement','date',array(
+	            'widget' => 'single_text',
+	            'format' => 'dd-MM-yyyy',
+	            'attr' => array('class' => 'date')
+	        ))
             ->add('remarques')
-            ->add('personne')
+            ->add('personne','genemu_jqueryautocomplete_text', array(
+            'route_name' => 'ajax'
+        ))
         ;
     }
 

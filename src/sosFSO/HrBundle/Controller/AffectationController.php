@@ -3,6 +3,7 @@
 namespace sosFSO\HrBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -207,4 +208,30 @@ class AffectationController extends Controller
             ->getForm()
         ;
     }
+    
+     /**
+     * @Route("/ajax_personne", name="ajax_personne")
+     */
+    public function ajaxAction(Request $request)
+    {
+        $value = $request->get('term');
+        
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $personnes = $em->getRepository('sosFSOHrBundle:Personne')->findAjaxValue($value);
+        
+        $json = array();
+        foreach ($personnes as $personne){
+            $json[] = array(
+                'label' => $personne->getSom(),
+                'value' => $member->getId()
+            );
+        }
+        
+        $response = new Response();
+        $response->setContent(json_encode($json));
+        
+        return $response;
+    }
+    
 }

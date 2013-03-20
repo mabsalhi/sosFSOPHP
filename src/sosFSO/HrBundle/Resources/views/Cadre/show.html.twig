@@ -1,10 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Détail du Cadre</h1>
+    <h1>Cadre</h1>
 
-    <table class="record_properties table table-bordered table-hover">
+    <table class="record_properties">
         <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
             <tr>
                 <th>Intitule</th>
                 <td>{{ entity.intitule }}</td>
@@ -20,22 +24,23 @@
         </tbody>
     </table>
 
-    <p>
-        <a href="{{ path('cadre') }}" class="btn">
-            <i class="icon-chevron-left"></i>
-            Retour a la liste des cadres
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cadre') }}">
+            Back to the list
         </a>
-        <a href="{{ path('cadre_edit', { 'id': entity.id }) }}" class="btn">
-            <i class="icon-edit"></i>
-            Modifier le cadre
+    </li>
+    <li>
+        <a href="{{ path('cadre_edit', { 'id': entity.id }) }}">
+            Edit
         </a>
+    </li>
+    <li>
         <form action="{{ path('cadre_delete', { 'id': entity.id }) }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
             {{ form_widget(delete_form) }}
-            <button type="submit" class="btn-danger">
-            <i class="icon-trash"></i>
-                Supprimer le cadre
-            </button>
+            <button type="submit">Delete</button>
         </form>
-    </p>
+    </li>
+</ul>
 {% endblock %}

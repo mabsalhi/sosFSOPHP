@@ -24,6 +24,30 @@ Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: R
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "doctrine.dbal.default_connection" (parent: doctrine.dbal.connection).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "doctrine.orm.default_configuration" (parent: doctrine.orm.configuration).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "doctrine.orm.default_manager_configurator" (parent: doctrine.orm.manager_configurator.abstract).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.choice" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.language" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.country" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.timezone" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.locale" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.entity" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.document" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.chosen.model" (parent: genemu.form.jquery.type.chosen).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.choice" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.language" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.country" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.timezone" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.locale" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.entity" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.document" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.autocompleter.model" (parent: genemu.form.jquery.type.autocompleter).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.choice" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.language" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.country" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.timezone" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.locale" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.entity" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.document" (parent: genemu.form.jquery.type.tokeninput).
+Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "genemu.form.jquery.type.tokeninput.model" (parent: genemu.form.jquery.type.tokeninput).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "monolog.logger.request" (parent: monolog.logger_prototype).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "monolog.logger.event" (parent: monolog.logger_prototype).
 Symfony\Component\DependencyInjection\Compiler\ResolveDefinitionTemplatesPass: Resolving inheritance for "monolog.logger.deprecation" (parent: monolog.logger_prototype).
@@ -78,6 +102,11 @@ Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Re
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "doctrine.orm.manager_configurator.abstract"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "doctrine.orm.security.user.provider"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "security.expressions.expression"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "genemu.form.jquery.type.autocompleter"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "genemu.form.jquery.type.autocomplete"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "genemu.form.jquery.type.chosen"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "genemu.form.jquery.type.select2"; reason: abstract
+Symfony\Component\DependencyInjection\Compiler\RemoveAbstractDefinitionsPass: Removed service "genemu.form.jquery.type.tokeninput"; reason: abstract
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "session.storage.native" previously pointing to "session.handler.native_file" to "session.handler".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "templating.engine.php" previously pointing to "templating.loader.filesystem" to "templating.loader".
 Symfony\Component\DependencyInjection\Compiler\ReplaceAliasByActualDefinitionPass: Changed reference of service "assetic.twig_directory_resource.kernel" previously pointing to "templating.loader.filesystem" to "templating.loader".
@@ -176,7 +205,6 @@ Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inl
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "assetic.twig_extension" to "twig".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "doctrine.twig.doctrine_extension" to "twig".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "security.extra.twig_extension" to "twig".
-Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "twig.form.renderer" to "twig.extension.form".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "twig.form.engine" to "twig.form.renderer".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "swiftmailer.transport.mailinvoker" to "swiftmailer.transport.mail".
 Symfony\Component\DependencyInjection\Compiler\InlineServiceDefinitionsPass: Inlined service "swiftmailer.transport.replacementfactory" to "swiftmailer.transport.buffer".
@@ -289,7 +317,6 @@ Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Remo
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.extension.httpkernel"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.extension.form"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.form.engine"; reason: unused
-Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.form.renderer"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "twig.extension.debug"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "6faabf52525c57dc4db3ea3673e46864_3"; reason: unused
 Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass: Removed service "6faabf52525c57dc4db3ea3673e46864_2"; reason: unused

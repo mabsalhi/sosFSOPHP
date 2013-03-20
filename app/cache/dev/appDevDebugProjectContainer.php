@@ -283,11 +283,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager5145f78286971_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager5145f78286971_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5145f78286971.php';
+        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5149f0bfc9995.php';
 
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2orm_default_c303fad6d2beaee3801eb6d18bbe7e4e');
@@ -317,7 +317,7 @@ class appDevDebugProjectContainer extends Container
         $f = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
         $this->get('doctrine.orm.default_manager_configurator')->configure($f);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5145f78286971_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
     }
 
     /**
@@ -461,7 +461,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_RegistryService()
     {
-        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'entity' => 'form.type.entity'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf'), 'repeated' => array(0 => 'form.type_extension.repeated.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
+        return $this->services['form.registry'] = new \Symfony\Component\Form\FormRegistry(array(0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension($this, array('field' => 'form.type.field', 'form' => 'form.type.form', 'birthday' => 'form.type.birthday', 'checkbox' => 'form.type.checkbox', 'choice' => 'form.type.choice', 'collection' => 'form.type.collection', 'country' => 'form.type.country', 'date' => 'form.type.date', 'datetime' => 'form.type.datetime', 'email' => 'form.type.email', 'file' => 'form.type.file', 'hidden' => 'form.type.hidden', 'integer' => 'form.type.integer', 'language' => 'form.type.language', 'locale' => 'form.type.locale', 'money' => 'form.type.money', 'number' => 'form.type.number', 'password' => 'form.type.password', 'percent' => 'form.type.percent', 'radio' => 'form.type.radio', 'repeated' => 'form.type.repeated', 'search' => 'form.type.search', 'textarea' => 'form.type.textarea', 'text' => 'form.type.text', 'time' => 'form.type.time', 'timezone' => 'form.type.timezone', 'url' => 'form.type.url', 'entity' => 'form.type.entity', 'genemu_recaptcha' => 'genemu.form.core.type.recaptcha', 'genemu_captcha' => 'genemu.form.core.type.captcha', 'genemu_plain' => 'genemu.form.core.type.plain', 'genemu_tinymce' => 'genemu.form.core.type.tinymce', 'genemu_ajaxmodel' => 'genemu.form.model.type.ajaxmodel', 'genemu_jquerycolor' => 'genemu.form.jquery.type.color', 'genemu_jquerydate' => 'genemu.form.jquery.type.date', 'genemu_jqueryfile' => 'genemu.form.jquery.type.file', 'genemu_jquerygeolocation' => 'genemu.form.jquery.type.geolocation', 'genemu_jqueryimage' => 'genemu.form.jquery.type.image', 'genemu_jqueryrating' => 'genemu.form.jquery.type.rating', 'genemu_jqueryslider' => 'genemu.form.jquery.type.slider', 'genemu_ajaxentity' => 'genemu.form.entity.type.ajaxentity', 'genemu_jquerychosen_choice' => 'genemu.form.jquery.type.chosen.choice', 'genemu_jquerychosen_language' => 'genemu.form.jquery.type.chosen.language', 'genemu_jquerychosen_country' => 'genemu.form.jquery.type.chosen.country', 'genemu_jquerychosen_timezone' => 'genemu.form.jquery.type.chosen.timezone', 'genemu_jquerychosen_locale' => 'genemu.form.jquery.type.chosen.locale', 'genemu_jquerychosen_entity' => 'genemu.form.jquery.type.chosen.entity', 'genemu_jquerychosen_document' => 'genemu.form.jquery.type.chosen.document', 'genemu_jquerychosen_model' => 'genemu.form.jquery.type.chosen.model', 'genemu_jqueryautocompleter_choice' => 'genemu.form.jquery.type.autocompleter.choice', 'genemu_jqueryautocompleter_language' => 'genemu.form.jquery.type.autocompleter.language', 'genemu_jqueryautocompleter_country' => 'genemu.form.jquery.type.autocompleter.country', 'genemu_jqueryautocompleter_timezone' => 'genemu.form.jquery.type.autocompleter.timezone', 'genemu_jqueryautocompleter_locale' => 'genemu.form.jquery.type.autocompleter.locale', 'genemu_jqueryautocompleter_entity' => 'genemu.form.jquery.type.autocompleter.entity', 'genemu_jqueryautocompleter_document' => 'genemu.form.jquery.type.autocompleter.document', 'genemu_jqueryautocompleter_model' => 'genemu.form.jquery.type.autocompleter.model', 'genemu_jquerytokeninput_choice' => 'genemu.form.jquery.type.tokeninput.choice', 'genemu_jquerytokeninput_language' => 'genemu.form.jquery.type.tokeninput.language', 'genemu_jquerytokeninput_country' => 'genemu.form.jquery.type.tokeninput.country', 'genemu_jquerytokeninput_timezone' => 'genemu.form.jquery.type.tokeninput.timezone', 'genemu_jquerytokeninput_locale' => 'genemu.form.jquery.type.tokeninput.locale', 'genemu_jquerytokeninput_entity' => 'genemu.form.jquery.type.tokeninput.entity', 'genemu_jquerytokeninput_document' => 'genemu.form.jquery.type.tokeninput.document', 'genemu_jquerytokeninput_model' => 'genemu.form.jquery.type.tokeninput.model'), array('form' => array(0 => 'form.type_extension.form.http_foundation', 1 => 'form.type_extension.form.validator', 2 => 'form.type_extension.csrf'), 'repeated' => array(0 => 'form.type_extension.repeated.validator')), array(0 => 'form.type_guesser.validator', 1 => 'form.type_guesser.doctrine'))), $this->get('form.resolved_type_factory'));
     }
 
     /**
@@ -982,6 +982,526 @@ class appDevDebugProjectContainer extends Container
         $instance->setFragmentPath('/_fragment');
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'genemu.form.core.type.captcha' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Core\Type\CaptchaType A Genemu\Bundle\FormBundle\Form\Core\Type\CaptchaType instance.
+     */
+    protected function getGenemu_Form_Core_Type_CaptchaService()
+    {
+        return $this->services['genemu.form.core.type.captcha'] = new \Genemu\Bundle\FormBundle\Form\Core\Type\CaptchaType($this->get('genemu.gd.captcha'), array('enabled' => true, 'driver' => 'gd', 'width' => 100, 'height' => 30, 'length' => 4, 'format' => 'png', 'chars' => array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9), 'font_size' => 18, 'grayscale' => false, 'font_color' => array(0 => '252525', 1 => '8B8787', 2 => '550707', 3 => '3526E6', 4 => '88531E'), 'background_color' => 'DDDDDD', 'border_color' => '000000', 'code' => NULL));
+    }
+
+    /**
+     * Gets the 'genemu.form.core.type.plain' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Core\Type\PlainType A Genemu\Bundle\FormBundle\Form\Core\Type\PlainType instance.
+     */
+    protected function getGenemu_Form_Core_Type_PlainService()
+    {
+        return $this->services['genemu.form.core.type.plain'] = new \Genemu\Bundle\FormBundle\Form\Core\Type\PlainType();
+    }
+
+    /**
+     * Gets the 'genemu.form.core.type.recaptcha' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Core\Type\ReCaptchaType A Genemu\Bundle\FormBundle\Form\Core\Type\ReCaptchaType instance.
+     */
+    protected function getGenemu_Form_Core_Type_RecaptchaService()
+    {
+        return $this->services['genemu.form.core.type.recaptcha'] = new \Genemu\Bundle\FormBundle\Form\Core\Type\ReCaptchaType($this->get('genemu.form.type_recaptcha.validator'), '', '', array());
+    }
+
+    /**
+     * Gets the 'genemu.form.core.type.tinymce' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Core\Type\TinymceType A Genemu\Bundle\FormBundle\Form\Core\Type\TinymceType instance.
+     */
+    protected function getGenemu_Form_Core_Type_TinymceService()
+    {
+        return $this->services['genemu.form.core.type.tinymce'] = new \Genemu\Bundle\FormBundle\Form\Core\Type\TinymceType(array('theme' => 'advanced'));
+    }
+
+    /**
+     * Gets the 'genemu.form.entity.type.ajaxentity' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Doctrine\Type\AjaxEntityType A Genemu\Bundle\FormBundle\Form\Doctrine\Type\AjaxEntityType instance.
+     */
+    protected function getGenemu_Form_Entity_Type_AjaxentityService()
+    {
+        return $this->services['genemu.form.entity.type.ajaxentity'] = new \Genemu\Bundle\FormBundle\Form\Doctrine\Type\AjaxEntityType($this->get('doctrine'));
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.choice' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_ChoiceService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('choice');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.country' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_CountryService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('country');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.document' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_DocumentService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('document');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.entity' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_EntityService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('entity');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.language' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_LanguageService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('language');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.locale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_LocaleService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('locale');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.model' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_ModelService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('model');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.autocompleter.timezone' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType A Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Autocompleter_TimezoneService()
+    {
+        return $this->services['genemu.form.jquery.type.autocompleter.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\AutocompleterType('timezone');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.choice' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_ChoiceService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('choice');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.country' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_CountryService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('country');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.document' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_DocumentService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('document');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.entity' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_EntityService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('entity');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.language' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_LanguageService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('language');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.locale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_LocaleService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('locale');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.model' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_ModelService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('model');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.chosen.timezone' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Chosen_TimezoneService()
+    {
+        return $this->services['genemu.form.jquery.type.chosen.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ChosenType('timezone');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.color' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ColorType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ColorType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_ColorService()
+    {
+        return $this->services['genemu.form.jquery.type.color'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ColorType(array());
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.date' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\DateType A Genemu\Bundle\FormBundle\Form\JQuery\Type\DateType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_DateService()
+    {
+        return $this->services['genemu.form.jquery.type.date'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\DateType(array());
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.file' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\FileType A Genemu\Bundle\FormBundle\Form\JQuery\Type\FileType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_FileService()
+    {
+        return $this->services['genemu.form.jquery.type.file'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\FileType(array(), '/home/abdel/NetBeansProjects/sosFSO/app/../web');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.geolocation' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\GeolocationType A Genemu\Bundle\FormBundle\Form\JQuery\Type\GeolocationType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_GeolocationService()
+    {
+        return $this->services['genemu.form.jquery.type.geolocation'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\GeolocationType();
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.image' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\ImageType A Genemu\Bundle\FormBundle\Form\JQuery\Type\ImageType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_ImageService()
+    {
+        return $this->services['genemu.form.jquery.type.image'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\ImageType('', array(), array());
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.rating' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\RatingType A Genemu\Bundle\FormBundle\Form\JQuery\Type\RatingType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_RatingService()
+    {
+        return $this->services['genemu.form.jquery.type.rating'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\RatingType(array());
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.slider' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\SliderType A Genemu\Bundle\FormBundle\Form\JQuery\Type\SliderType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_SliderService()
+    {
+        return $this->services['genemu.form.jquery.type.slider'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\SliderType();
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.choice' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_ChoiceService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.choice'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('choice');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.country' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_CountryService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.country'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('country');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.document' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_DocumentService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.document'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('document');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.entity' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_EntityService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.entity'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('entity');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.language' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_LanguageService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.language'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('language');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.locale' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_LocaleService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.locale'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('locale');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.model' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_ModelService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.model'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('model');
+    }
+
+    /**
+     * Gets the 'genemu.form.jquery.type.tokeninput.timezone' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType A Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType instance.
+     */
+    protected function getGenemu_Form_Jquery_Type_Tokeninput_TimezoneService()
+    {
+        return $this->services['genemu.form.jquery.type.tokeninput.timezone'] = new \Genemu\Bundle\FormBundle\Form\JQuery\Type\TokeninputType('timezone');
+    }
+
+    /**
+     * Gets the 'genemu.form.model.type.ajaxmodel' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Model\Type\AjaxModelType A Genemu\Bundle\FormBundle\Form\Model\Type\AjaxModelType instance.
+     */
+    protected function getGenemu_Form_Model_Type_AjaxmodelService()
+    {
+        return $this->services['genemu.form.model.type.ajaxmodel'] = new \Genemu\Bundle\FormBundle\Form\Model\Type\AjaxModelType();
+    }
+
+    /**
+     * Gets the 'genemu.form.type_recaptcha.validator' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Form\Core\Validator\ReCaptchaValidator A Genemu\Bundle\FormBundle\Form\Core\Validator\ReCaptchaValidator instance.
+     */
+    protected function getGenemu_Form_TypeRecaptcha_ValidatorService()
+    {
+        return $this->services['genemu.form.type_recaptcha.validator'] = new \Genemu\Bundle\FormBundle\Form\Core\Validator\ReCaptchaValidator($this->get('request'), '', array());
+    }
+
+    /**
+     * Gets the 'genemu.gd.captcha' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Gd\Type\Captcha A Genemu\Bundle\FormBundle\Gd\Type\Captcha instance.
+     */
+    protected function getGenemu_Gd_CaptchaService()
+    {
+        return $this->services['genemu.gd.captcha'] = new \Genemu\Bundle\FormBundle\Gd\Type\Captcha($this->get('session'), 'ThisTokenIsNotSoSecretChangeIt');
+    }
+
+    /**
+     * Gets the 'genemu.twig.extension.form' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Genemu\Bundle\FormBundle\Twig\Extension\FormExtension A Genemu\Bundle\FormBundle\Twig\Extension\FormExtension instance.
+     */
+    protected function getGenemu_Twig_Extension_FormService()
+    {
+        return $this->services['genemu.twig.extension.form'] = new \Genemu\Bundle\FormBundle\Twig\Extension\FormExtension($this->get('twig.form.renderer'));
     }
 
     /**
@@ -2648,11 +3168,12 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig')), $this->get('form.csrf_provider'))));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension($this->get('twig.form.renderer')));
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default')));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
         $instance->addExtension(new \JMS\SecurityExtraBundle\Twig\SecurityExtension($a));
+        $instance->addExtension($this->get('genemu.twig.extension.form'));
         $instance->addGlobal('app', $this->get('templating.globals'));
 
         return $instance;
@@ -2703,6 +3224,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/src/sosFSO/HrBundle/Resources/views', 'sosFSOHr');
+        $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/genemu/form-bundle/Genemu/Bundle/FormBundle/Resources/views', 'GenemuForm');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/app/Resources/views');
@@ -2824,7 +3346,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager5145f78286971_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3097,6 +3619,23 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'twig.form.renderer' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return Symfony\Bridge\Twig\Form\TwigRenderer A Symfony\Bridge\Twig\Form\TwigRenderer instance.
+     */
+    protected function getTwig_Form_RendererService()
+    {
+        return $this->services['twig.form.renderer'] = new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig', 1 => 'GenemuFormBundle:Form:div_layout.html.twig', 2 => 'GenemuFormBundle:Form:jquery_layout.html.twig', 3 => 'GenemuFormBundle:Form:stylesheet_layout.html.twig')), $this->get('form.csrf_provider'));
+    }
+
+    /**
      * Gets the 'validator.mapping.class_metadata_factory' service.
      *
      * This service is shared.
@@ -3183,6 +3722,7 @@ class appDevDebugProjectContainer extends Container
                 'JMSDiExtraBundle' => 'JMS\\DiExtraBundle\\JMSDiExtraBundle',
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
                 'sosFSOHrBundle' => 'sosFSO\\HrBundle\\sosFSOHrBundle',
+                'GenemuFormBundle' => 'Genemu\\Bundle\\FormBundle\\GenemuFormBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3466,6 +4006,9 @@ class appDevDebugProjectContainer extends Container
             'twig.exception_listener.controller' => 'twig.controller.exception:showAction',
             'twig.form.resources' => array(
                 0 => 'form_div_layout.html.twig',
+                1 => 'GenemuFormBundle:Form:div_layout.html.twig',
+                2 => 'GenemuFormBundle:Form:jquery_layout.html.twig',
+                3 => 'GenemuFormBundle:Form:stylesheet_layout.html.twig',
             ),
             'twig.options' => array(
                 'debug' => true,
@@ -3668,8 +4211,8 @@ class appDevDebugProjectContainer extends Container
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
 
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5145f78286971.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5145f78286971_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5149f0bfc9995.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),
@@ -3710,6 +4253,73 @@ class appDevDebugProjectContainer extends Container
                 0 => 'ROLE_PREVIOUS_ADMIN',
             ),
             'security.iddqd_aliases' => array(
+
+            ),
+            'genemu.form.recaptcha.public_key' => '',
+            'genemu.form.recaptcha.private_key' => '',
+            'genemu.form.recaptcha.server_url' => '',
+            'genemu.form.recaptcha.code' => '',
+            'genemu.form.recaptcha.options' => array(
+
+            ),
+            'genemu.form.recaptcha.validation.options' => array(
+
+            ),
+            'genemu.form.captcha.options' => array(
+                'enabled' => true,
+                'driver' => 'gd',
+                'width' => 100,
+                'height' => 30,
+                'length' => 4,
+                'format' => 'png',
+                'chars' => array(
+                    0 => 0,
+                    1 => 1,
+                    2 => 2,
+                    3 => 3,
+                    4 => 4,
+                    5 => 5,
+                    6 => 6,
+                    7 => 7,
+                    8 => 8,
+                    9 => 9,
+                ),
+                'font_size' => 18,
+                'grayscale' => false,
+                'font_color' => array(
+                    0 => '252525',
+                    1 => '8B8787',
+                    2 => '550707',
+                    3 => '3526E6',
+                    4 => '88531E',
+                ),
+                'background_color' => 'DDDDDD',
+                'border_color' => '000000',
+                'code' => NULL,
+            ),
+            'genemu.form.tinymce.configs' => array(
+                'theme' => 'advanced',
+            ),
+            'genemu.form.color.options' => array(
+
+            ),
+            'genemu.form.date.options' => array(
+
+            ),
+            'genemu.form.rating.options' => array(
+
+            ),
+            'genemu.form.file.root_dir' => '/home/abdel/NetBeansProjects/sosFSO/app/../web',
+            'genemu.form.file.folder' => '/upload',
+            'genemu.form.file.upload_dir' => '/home/abdel/NetBeansProjects/sosFSO/app/../web/upload',
+            'genemu.form.file.options' => array(
+
+            ),
+            'genemu.form.image.selected' => '',
+            'genemu.form.image.thumbnails' => array(
+
+            ),
+            'genemu.form.image.filters' => array(
 
             ),
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',

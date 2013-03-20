@@ -18,13 +18,18 @@ class PersonneType extends AbstractType
             ->add('som')
             ->add('nomAr')
             ->add('prenomAr')
-            ->add('dateNaissance')
+            ->add('dateNaissance','date',array(
+	            'widget' => 'single_text',
+	            'format' => 'dd-MM-yyyy',
+	            'attr' => array('class' => 'date')
+	        ))
             ->add('lieuNaissance')
+            ->add('sexe')
+            ->add('photo')
             ->add('etatMatrimonial')
             ->add('telephonne')
             ->add('posteBudgetaire')
-            ->add('diplomes')
-            ->add('situations')
+            
         ;
     }
 
