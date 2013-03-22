@@ -56,7 +56,7 @@ class Affectation
     private $personne;
      
     /**
-     * @ORM\OneToMany(targetEntity="Service", mappedBy="staff")
+     * @ORM\OneToOne(targetEntity="Service", mappedBy="staff")
      **/
     private $service;
     

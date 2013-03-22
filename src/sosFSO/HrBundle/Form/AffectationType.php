@@ -23,9 +23,7 @@ class AffectationType extends AbstractType
 	            'attr' => array('class' => 'date')
 	        ))
             ->add('remarques')
-            ->add('personne','genemu_jqueryautocomplete_text', array(
-            'route_name' => 'ajax'
-        ))
+            ->add('personne')
         ;
     }
 

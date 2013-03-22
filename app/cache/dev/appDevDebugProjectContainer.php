@@ -283,11 +283,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5149f0bfc9995.php';
+        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php';
 
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2orm_default_c303fad6d2beaee3801eb6d18bbe7e4e');
@@ -317,7 +317,7 @@ class appDevDebugProjectContainer extends Container
         $f = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
         $this->get('doctrine.orm.default_manager_configurator')->configure($f);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
     }
 
     /**
@@ -994,7 +994,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getGenemu_Form_Core_Type_CaptchaService()
     {
-        return $this->services['genemu.form.core.type.captcha'] = new \Genemu\Bundle\FormBundle\Form\Core\Type\CaptchaType($this->get('genemu.gd.captcha'), array('enabled' => true, 'driver' => 'gd', 'width' => 100, 'height' => 30, 'length' => 4, 'format' => 'png', 'chars' => array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9), 'font_size' => 18, 'grayscale' => false, 'font_color' => array(0 => '252525', 1 => '8B8787', 2 => '550707', 3 => '3526E6', 4 => '88531E'), 'background_color' => 'DDDDDD', 'border_color' => '000000', 'code' => NULL));
+        return $this->services['genemu.form.core.type.captcha'] = new \Genemu\Bundle\FormBundle\Form\Core\Type\CaptchaType($this->get('genemu.gd.captcha'), array('enabled' => true, 'driver' => 'gd', 'width' => 100, 'height' => 30, 'length' => 4, 'format' => 'png', 'chars' => array(0 => 0, 1 => 1, 2 => 2, 3 => 3, 4 => 4, 5 => 5, 6 => 6, 7 => 7, 8 => 8, 9 => 9), 'font_size' => 18, 'grayscale' => false, 'font_color' => array(0 => '252525', 1 => '8B8787', 2 => '550707', 3 => '3526E6', 4 => '88531E'), 'fonts' => array(0 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/akbar.ttf', 1 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/brushcut.ttf', 2 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/molten.ttf', 3 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/planetbe.ttf', 4 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/whoobub.ttf'), 'background_color' => 'DDDDDD', 'border_color' => '000000', 'code' => NULL));
     }
 
     /**
@@ -3346,7 +3346,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -4211,8 +4211,8 @@ class appDevDebugProjectContainer extends Container
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
 
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5149f0bfc9995.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),
@@ -4292,6 +4292,13 @@ class appDevDebugProjectContainer extends Container
                     2 => '550707',
                     3 => '3526E6',
                     4 => '88531E',
+                ),
+                'fonts' => array(
+                    0 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/akbar.ttf',
+                    1 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/brushcut.ttf',
+                    2 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/molten.ttf',
+                    3 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/planetbe.ttf',
+                    4 => '/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/whoobub.ttf',
                 ),
                 'background_color' => 'DDDDDD',
                 'border_color' => '000000',

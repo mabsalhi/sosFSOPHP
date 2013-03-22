@@ -85,7 +85,7 @@ class PersonneController extends Controller
      *
      * @Route("/{id}", name="personne_show")
      * @Method("GET")
-     * @Template()
+     * @Template("sosFSOHrBundle:Personne:information.html.twig")
      */
     public function showAction($id)
     {

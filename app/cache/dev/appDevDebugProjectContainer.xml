@@ -483,8 +483,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5149f0bfc9995.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -554,6 +554,13 @@
         <parameter>550707</parameter>
         <parameter>3526E6</parameter>
         <parameter>88531E</parameter>
+      </parameter>
+      <parameter key="fonts" type="collection">
+        <parameter>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/akbar.ttf</parameter>
+        <parameter>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/brushcut.ttf</parameter>
+        <parameter>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/molten.ttf</parameter>
+        <parameter>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/planetbe.ttf</parameter>
+        <parameter>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/whoobub.ttf</parameter>
       </parameter>
       <parameter key="background_color">DDDDDD</parameter>
       <parameter key="border_color">000000</parameter>
@@ -2343,8 +2350,8 @@
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager5149f0bfc9995_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_5149f0bfc9995.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2628,6 +2635,13 @@
           <argument>550707</argument>
           <argument>3526E6</argument>
           <argument>88531E</argument>
+        </argument>
+        <argument key="fonts" type="collection">
+          <argument>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/akbar.ttf</argument>
+          <argument>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/brushcut.ttf</argument>
+          <argument>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/molten.ttf</argument>
+          <argument>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/planetbe.ttf</argument>
+          <argument>/home/abdel/NetBeansProjects/sosFSO/app/../web/bundles/genemuform/fonts/whoobub.ttf</argument>
         </argument>
         <argument key="background_color">DDDDDD</argument>
         <argument key="border_color">000000</argument>

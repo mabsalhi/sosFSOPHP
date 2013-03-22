@@ -36,7 +36,7 @@ class Service {
     private $description;
 
    /**
-     * @ORM\ManyToOne(targetEntity="Affectation", inversedBy="service")
+     * @ORM\OneToOne(targetEntity="Affectation", inversedBy="service")
      * @ORM\JoinColumn(name="affectation_id", referencedColumnName="id")
      **/
     private $staff;

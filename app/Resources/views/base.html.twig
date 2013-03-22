@@ -6,21 +6,17 @@
         <title>{% block title %}SOS - FSO - Human Resources Management{% endblock %}</title>
 
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('css/custom-theme/jquery-ui-1.10.2.custom.css') }}" type="text/css" />
+        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link type="text/css" href="{{ asset('css/custom-theme/jquery-ui-1.10.0.custom.css') }}" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" />
     {% endblock %}
-         {% block javascripts %}
-    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
-                     <script type="text/javascript" src="{{ asset('js/jquery-1.9.1.js') }}"></script>
-                <script type="text/javascript" src="{{ asset('js/jquery-ui-1.10.2.custom.js') }}"></script>
-
-  {% endblock %}
+       
         <script>
       $(function() {		
 		$( ".date" ).datepicker({
 			dateFormat: 'dd-mm-yy'
 		});
+                $('#tabs').tabs();
 	});
         </script>
     </head>
@@ -34,22 +30,12 @@
                     <p></p>
                 </div>
 
-                <div class="row">
-                    <div id="menu" class="span3">
-                        <h3>Les Fonctionalité</h3>
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="{{ path('personne') }}">Personne</a></li>
-                            <li><a href="{{ path('diplome') }}">Diplome</a></li>
-                            <li><a href="{{ path('cadre') }}">Cadre</a></li>
-                        </ul>
-
-
-                    </div>
+           
                     <div id="content" class="span9">
           {% block body %}
           {% endblock %}
                         </div>
-                    </div>
+                    
 
                     <hr>
 
@@ -57,8 +43,15 @@
                         <p>La faculté des sciences Oujda</p>
                     </footer>
                 </div>
-
- 
-
+  {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+  <!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ asset('assets/js/jquery-1.9.0.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/jquery-ui-1.10.0.custom.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/google-code-prettify/prettify.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/docs.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/js/demo.js') }}" type="text/javascript"></script>
+  {% endblock %}
             </body>
         </html>

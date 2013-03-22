@@ -16,8 +16,8 @@ use sosFSO\HrBundle\Form\AffectationType;
  *
  * @Route("/affectation")
  */
-class AffectationController extends Controller
-{
+class AffectationController extends Controller {
+
     /**
      * Lists all Affectation entities.
      *
@@ -25,8 +25,7 @@ class AffectationController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('sosFSOHrBundle:Affectation')->findAll();
@@ -43,9 +42,8 @@ class AffectationController extends Controller
      * @Method("POST")
      * @Template("sosFSOHrBundle:Affectation:new.html.twig")
      */
-    public function createAction(Request $request)
-    {
-        $entity  = new Affectation();
+    public function createAction(Request $request) {
+        $entity = new Affectation();
         $form = $this->createForm(new AffectationType(), $entity);
         $form->bind($request);
 
@@ -59,7 +57,7 @@ class AffectationController extends Controller
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -70,14 +68,13 @@ class AffectationController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function newAction()
-    {
+    public function newAction() {
         $entity = new Affectation();
-        $form   = $this->createForm(new AffectationType(), $entity);
+        $form = $this->createForm(new AffectationType(), $entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
@@ -88,8 +85,7 @@ class AffectationController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function showAction($id)
-    {
+    public function showAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('sosFSOHrBundle:Affectation')->find($id);
@@ -101,7 +97,7 @@ class AffectationController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -113,8 +109,7 @@ class AffectationController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function editAction($id)
-    {
+    public function editAction($id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('sosFSOHrBundle:Affectation')->find($id);
@@ -127,8 +122,8 @@ class AffectationController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -140,8 +135,7 @@ class AffectationController extends Controller
      * @Method("PUT")
      * @Template("sosFSOHrBundle:Affectation:edit.html.twig")
      */
-    public function updateAction(Request $request, $id)
-    {
+    public function updateAction(Request $request, $id) {
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('sosFSOHrBundle:Affectation')->find($id);
@@ -162,8 +156,8 @@ class AffectationController extends Controller
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         );
     }
@@ -174,8 +168,7 @@ class AffectationController extends Controller
      * @Route("/{id}", name="affectation_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, $id)
-    {
+    public function deleteAction(Request $request, $id) {
         $form = $this->createDeleteForm($id);
         $form->bind($request);
 
@@ -201,37 +194,11 @@ class AffectationController extends Controller
      *
      * @return Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm($id)
-    {
+    private function createDeleteForm($id) {
         return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
+                        ->add('id', 'hidden')
+                        ->getForm()
         ;
     }
-    
-     /**
-     * @Route("/ajax_personne", name="ajax_personne")
-     */
-    public function ajaxAction(Request $request)
-    {
-        $value = $request->get('term');
-        
-        $em = $this->getDoctrine()->getEntityManager();
-        
-        $personnes = $em->getRepository('sosFSOHrBundle:Personne')->findAjaxValue($value);
-        
-        $json = array();
-        foreach ($personnes as $personne){
-            $json[] = array(
-                'label' => $personne->getSom(),
-                'value' => $member->getId()
-            );
-        }
-        
-        $response = new Response();
-        $response->setContent(json_encode($json));
-        
-        return $response;
-    }
-    
+
 }
