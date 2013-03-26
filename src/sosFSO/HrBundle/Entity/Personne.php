@@ -104,7 +104,14 @@ class Personne {
      * @ORM\Column(name="etat_matrimonial", nullable = true, type="string", length=255)
      */
     private $etatMatrimonial;
-
+  
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="nb_enfants", nullable = true, type="integer")
+     */
+    private $nbEnfants;
+    
     /**
      * @var integer
      *
@@ -120,7 +127,7 @@ class Personne {
     private $posteBudgetaire;
 
     /**
-     * @ORM\OneToMany(targetEntity="Affectation", mappedBy="personne")
+     * @ORM\OneToOne(targetEntity="Affectation", mappedBy="personne")
      */
     private $affectation;
 
@@ -589,5 +596,41 @@ class Personne {
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set nbEnfants
+     *
+     * @param integer $nbEnfants
+     * @return Personne
+     */
+    public function setNbEnfants($nbEnfants)
+    {
+        $this->nbEnfants = $nbEnfants;
+    
+        return $this;
+    }
+
+    /**
+     * Get nbEnfants
+     *
+     * @return integer 
+     */
+    public function getNbEnfants()
+    {
+        return $this->nbEnfants;
+    }
+
+    /**
+     * Set affectation
+     *
+     * @param \sosFSO\HrBundle\Entity\Affectation $affectation
+     * @return Personne
+     */
+    public function setAffectation(\sosFSO\HrBundle\Entity\Affectation $affectation = null)
+    {
+        $this->affectation = $affectation;
+    
+        return $this;
     }
 }

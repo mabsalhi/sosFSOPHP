@@ -1,3 +1,8 @@
+sos_fsogrh:
+    resource: "@sosFSOGRHBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 sos_fso_hr:
     resource: "@sosFSOHrBundle/Controller/"
     type:     annotation

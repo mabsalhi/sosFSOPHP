@@ -241,7 +241,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrineService()
     {
-        return $this->services['doctrine'] = new \Doctrine\Bundle\DoctrineBundle\Registry($this, array('default' => 'doctrine.dbal.default_connection'), array('default' => 'doctrine.orm.default_entity_manager'), 'default', 'default');
+        return $this->services['doctrine'] = new \Doctrine\Bundle\DoctrineBundle\Registry($this, array('default' => 'doctrine.dbal.default_connection', 'grh' => 'doctrine.dbal.grh_connection'), array('default' => 'doctrine.orm.default_entity_manager', 'grh' => 'doctrine.orm.grh_entity_manager'), 'default', 'default');
     }
 
     /**
@@ -268,13 +268,33 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Dbal_DefaultConnectionService()
     {
         $a = new \Doctrine\DBAL\Logging\LoggerChain();
-        $a->addLogger(new \Symfony\Bridge\Doctrine\Logger\DbalLogger($this->get('monolog.logger.doctrine'), $this->get('debug.stopwatch')));
+        $a->addLogger($this->get('doctrine.dbal.logger'));
         $a->addLogger($this->get('doctrine.dbal.logger.profiling.default'));
 
         $b = new \Doctrine\DBAL\Configuration();
         $b->setSQLLogger($a);
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'sosFSO_Hr', 'host' => '127.0.0.1', 'port' => NULL, 'user' => 'root', 'password' => 'salhi1983', 'charset' => 'UTF8', 'driver' => 'pdo_mysql', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'sosFSO', 'host' => '127.0.0.1', 'port' => NULL, 'user' => 'root', 'password' => 'salhi1983', 'charset' => 'UTF8', 'driver' => 'pdo_mysql', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
+    }
+
+    /**
+     * Gets the 'doctrine.dbal.grh_connection' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return stdClass A stdClass instance.
+     */
+    protected function getDoctrine_Dbal_GrhConnectionService()
+    {
+        $a = new \Doctrine\DBAL\Logging\LoggerChain();
+        $a->addLogger($this->get('doctrine.dbal.logger'));
+        $a->addLogger($this->get('doctrine.dbal.logger.profiling.grh'));
+
+        $b = new \Doctrine\DBAL\Configuration();
+        $b->setSQLLogger($a);
+
+        return $this->services['doctrine.dbal.grh_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'sosFSO_GRH', 'host' => '127.0.0.1', 'port' => NULL, 'user' => 'root', 'password' => 'salhi1983', 'charset' => 'UTF8', 'driver' => 'pdo_mysql', 'driverOptions' => array()), $b, new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this), array());
     }
 
     /**
@@ -283,11 +303,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     * @return EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php';
+        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_51508efb6ccc0.php';
 
         $a = new \Doctrine\Common\Cache\ArrayCache();
         $a->setNamespace('sf2orm_default_c303fad6d2beaee3801eb6d18bbe7e4e');
@@ -309,15 +329,15 @@ class appDevDebugProjectContainer extends Container
         $e->setMetadataDriverImpl($d);
         $e->setProxyDir('/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/doctrine/orm/Proxies');
         $e->setProxyNamespace('Proxies');
-        $e->setAutoGenerateProxyClasses(true);
+        $e->setAutoGenerateProxyClasses(false);
         $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
         $e->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $e->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $e->setNamingStrategy($this->get('doctrine.orm.naming_strategy.default'));
 
         $f = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
         $this->get('doctrine.orm.default_manager_configurator')->configure($f);
 
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
     }
 
     /**
@@ -331,6 +351,62 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultManagerConfiguratorService()
     {
         return $this->services['doctrine.orm.default_manager_configurator'] = new \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator(array());
+    }
+
+    /**
+     * Gets the 'doctrine.orm.grh_entity_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager A EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager instance.
+     */
+    protected function getDoctrine_Orm_GrhEntityManagerService()
+    {
+        require_once '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_51508efb6ccc0.php';
+
+        $a = new \Doctrine\Common\Cache\ArrayCache();
+        $a->setNamespace('sf2orm_grh_c303fad6d2beaee3801eb6d18bbe7e4e');
+
+        $b = new \Doctrine\Common\Cache\ArrayCache();
+        $b->setNamespace('sf2orm_grh_c303fad6d2beaee3801eb6d18bbe7e4e');
+
+        $c = new \Doctrine\Common\Cache\ArrayCache();
+        $c->setNamespace('sf2orm_grh_c303fad6d2beaee3801eb6d18bbe7e4e');
+
+        $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => '/home/abdel/NetBeansProjects/sosFSO/src/sosFSO/GRHBundle/Entity')), 'sosFSO\\GRHBundle\\Entity');
+
+        $e = new \Doctrine\ORM\Configuration();
+        $e->setEntityNamespaces(array('sosFSOGRHBundle' => 'sosFSO\\GRHBundle\\Entity'));
+        $e->setMetadataCacheImpl($a);
+        $e->setQueryCacheImpl($b);
+        $e->setResultCacheImpl($c);
+        $e->setMetadataDriverImpl($d);
+        $e->setProxyDir('/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/doctrine/orm/Proxies');
+        $e->setProxyNamespace('Proxies');
+        $e->setAutoGenerateProxyClasses(false);
+        $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $e->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $e->setNamingStrategy($this->get('doctrine.orm.naming_strategy.default'));
+
+        $f = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.grh_connection'), $e);
+        $this->get('doctrine.orm.grh_manager_configurator')->configure($f);
+
+        return $this->services['doctrine.orm.grh_entity_manager'] = new \EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($f, $this);
+    }
+
+    /**
+     * Gets the 'doctrine.orm.grh_manager_configurator' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Doctrine\Bundle\DoctrineBundle\ManagerConfigurator A Doctrine\Bundle\DoctrineBundle\ManagerConfigurator instance.
+     */
+    protected function getDoctrine_Orm_GrhManagerConfiguratorService()
+    {
+        return $this->services['doctrine.orm.grh_manager_configurator'] = new \Doctrine\Bundle\DoctrineBundle\ManagerConfigurator(array());
     }
 
     /**
@@ -1875,6 +1951,7 @@ class appDevDebugProjectContainer extends Container
 
         $d = new \Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector($this->get('doctrine'));
         $d->addLogger('default', $this->get('doctrine.dbal.logger.profiling.default'));
+        $d->addLogger('grh', $this->get('doctrine.dbal.logger.profiling.grh'));
 
         $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/profiler', '', '', 86400), $a);
 
@@ -3225,6 +3302,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views', 'Doctrine');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/src/sosFSO/HrBundle/Resources/views', 'sosFSOHr');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/genemu/form-bundle/Genemu/Bundle/FormBundle/Resources/views', 'GenemuForm');
+        $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/src/sosFSO/GRHBundle/Resources/views', 'sosFSOGRH');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('/home/abdel/NetBeansProjects/sosFSO/app/Resources/views');
@@ -3346,7 +3424,7 @@ class appDevDebugProjectContainer extends Container
     /**
      * Gets the doctrine.orm.entity_manager service alias.
      *
-     * @return EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
+     * @return EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager An instance of the doctrine.orm.default_entity_manager service
      */
     protected function getDoctrine_Orm_EntityManagerService()
     {
@@ -3436,6 +3514,23 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'doctrine.dbal.logger' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return Symfony\Bridge\Doctrine\Logger\DbalLogger A Symfony\Bridge\Doctrine\Logger\DbalLogger instance.
+     */
+    protected function getDoctrine_Dbal_LoggerService()
+    {
+        return $this->services['doctrine.dbal.logger'] = new \Symfony\Bridge\Doctrine\Logger\DbalLogger($this->get('monolog.logger.doctrine'), $this->get('debug.stopwatch'));
+    }
+
+    /**
      * Gets the 'doctrine.dbal.logger.profiling.default' service.
      *
      * This service is shared.
@@ -3450,6 +3545,40 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Dbal_Logger_Profiling_DefaultService()
     {
         return $this->services['doctrine.dbal.logger.profiling.default'] = new \Doctrine\DBAL\Logging\DebugStack();
+    }
+
+    /**
+     * Gets the 'doctrine.dbal.logger.profiling.grh' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return Doctrine\DBAL\Logging\DebugStack A Doctrine\DBAL\Logging\DebugStack instance.
+     */
+    protected function getDoctrine_Dbal_Logger_Profiling_GrhService()
+    {
+        return $this->services['doctrine.dbal.logger.profiling.grh'] = new \Doctrine\DBAL\Logging\DebugStack();
+    }
+
+    /**
+     * Gets the 'doctrine.orm.naming_strategy.default' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return Doctrine\ORM\Mapping\DefaultNamingStrategy A Doctrine\ORM\Mapping\DefaultNamingStrategy instance.
+     */
+    protected function getDoctrine_Orm_NamingStrategy_DefaultService()
+    {
+        return $this->services['doctrine.orm.naming_strategy.default'] = new \Doctrine\ORM\Mapping\DefaultNamingStrategy();
     }
 
     /**
@@ -3723,6 +3852,7 @@ class appDevDebugProjectContainer extends Container
                 'JMSSecurityExtraBundle' => 'JMS\\SecurityExtraBundle\\JMSSecurityExtraBundle',
                 'sosFSOHrBundle' => 'sosFSO\\HrBundle\\sosFSOHrBundle',
                 'GenemuFormBundle' => 'Genemu\\Bundle\\FormBundle\\GenemuFormBundle',
+                'sosFSOGRHBundle' => 'sosFSO\\GRHBundle\\sosFSOGRHBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3732,7 +3862,7 @@ class appDevDebugProjectContainer extends Container
             'database_driver' => 'pdo_mysql',
             'database_host' => '127.0.0.1',
             'database_port' => NULL,
-            'database_name' => 'sosFSO_Hr',
+            'database_name' => 'sosFSO',
             'database_user' => 'root',
             'database_password' => 'salhi1983',
             'mailer_transport' => 'smtp',
@@ -4132,6 +4262,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.class' => 'Doctrine\\Bundle\\DoctrineBundle\\Registry',
             'doctrine.entity_managers' => array(
                 'default' => 'doctrine.orm.default_entity_manager',
+                'grh' => 'doctrine.orm.grh_entity_manager',
             ),
             'doctrine.default_entity_manager' => 'default',
             'doctrine.dbal.connection_factory.types' => array(
@@ -4139,6 +4270,7 @@ class appDevDebugProjectContainer extends Container
             ),
             'doctrine.connections' => array(
                 'default' => 'doctrine.dbal.default_connection',
+                'grh' => 'doctrine.dbal.grh_connection',
             ),
             'doctrine.default_connection' => 'default',
             'doctrine.orm.configuration.class' => 'Doctrine\\ORM\\Configuration',
@@ -4175,7 +4307,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.listeners.resolve_target_entity.class' => 'Doctrine\\ORM\\Tools\\ResolveTargetEntityListener',
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
-            'doctrine.orm.auto_generate_proxy_classes' => true,
+            'doctrine.orm.auto_generate_proxy_classes' => false,
             'doctrine.orm.proxy_dir' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
@@ -4211,8 +4343,8 @@ class appDevDebugProjectContainer extends Container
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
 
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => '/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_51508efb6ccc0.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'security.secured_services' => array(
 
             ),

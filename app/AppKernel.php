@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new sosFSO\HrBundle\sosFSOHrBundle(),
             new Genemu\Bundle\FormBundle\GenemuFormBundle(),
+            new sosFSO\GRHBundle\sosFSOGRHBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

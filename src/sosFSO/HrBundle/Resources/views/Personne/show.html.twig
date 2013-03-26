@@ -1,9 +1,14 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+    <h1>Personne</h1>
 
-    <table class="record_properties table table-bordered">
+    <table class="record_properties">
         <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
             <tr>
                 <th>Nom</th>
                 <td>{{ entity.nom }}</td>
@@ -11,64 +16,61 @@
             <tr>
                 <th>Prenom</th>
                 <td>{{ entity.prenom }}</td>
+            </tr>
+            <tr>
                 <th>Prenom2</th>
                 <td>{{ entity.prenom2 }}</td>
             </tr>
-            <tr style="text-align: right">
-                <td style="text-align: right">{{ entity.prenomAr }}</td>
-                <th style="text-align: right">الاسم الشخصي :</th>
-                
-                <td style="text-align: right">{{ entity.nomAr }}</td>
-                <th style="text-align: right">الاسم العائلي : </th>
-                
-            </tr>
-           
             <tr>
-                <th>Cin :</th>
+                <th>Cin</th>
                 <td>{{ entity.cin }}</td>
-                <th>Numero de SOM :</th>
-                <td>{{ entity.som }}</td>
-                <th>Postebudgetaire</th>
-                <td>{{ entity.posteBudgetaire }}</td>
             </tr>
             <tr>
-                <th>Date de naissance</th>
+                <th>Som</th>
+                <td>{{ entity.som }}</td>
+            </tr>
+            <tr>
+                <th>Nomar</th>
+                <td>{{ entity.nomAr }}</td>
+            </tr>
+            <tr>
+                <th>Prenomar</th>
+                <td>{{ entity.prenomAr }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
                 <td>{{ entity.dateNaissance|date('Y-m-d H:i:s') }}</td>
-                <th>Lieu de naissance</th>
+            </tr>
+            <tr>
+                <th>Lieunaissance</th>
                 <td>{{ entity.lieuNaissance }}</td>
             </tr>
             <tr>
                 <th>Sexe</th>
-                <td>
-{% 
-if entity.sexe == 0 
-%}Male{% else %}Female{% endif %}</td>
-                    <th>Etatmatrimonial</th>
-                <td>{{ entity.etatMatrimonial }}</td>
+                <td>{{ entity.sexe }}</td>
             </tr>
             <tr>
                 <th>Photo</th>
                 <td>{{ entity.photo }}</td>
             </tr>
             <tr>
-                
+                <th>Etatmatrimonial</th>
+                <td>{{ entity.etatMatrimonial }}</td>
+            </tr>
+            <tr>
+                <th>Nbenfants</th>
+                <td>{{ entity.nbEnfants }}</td>
             </tr>
             <tr>
                 <th>Telephonne</th>
                 <td>{{ entity.telephonne }}</td>
             </tr>
-            
+            <tr>
+                <th>Postebudgetaire</th>
+                <td>{{ entity.posteBudgetaire }}</td>
+            </tr>
         </tbody>
     </table>
-<div class="span6">
-
-                {% for affectation in entity %}
-        {% for laffecttation in affectation %}
-        {{ laffectation.poste }}
-        {% endfor %}
-        {% endfor %}
-     tesrethrthrthrtht
-</div>
 
         <ul class="record_actions">
     <li>

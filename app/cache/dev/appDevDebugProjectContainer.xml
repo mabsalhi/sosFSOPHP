@@ -21,6 +21,7 @@
       <parameter key="JMSSecurityExtraBundle">JMS\SecurityExtraBundle\JMSSecurityExtraBundle</parameter>
       <parameter key="sosFSOHrBundle">sosFSO\HrBundle\sosFSOHrBundle</parameter>
       <parameter key="GenemuFormBundle">Genemu\Bundle\FormBundle\GenemuFormBundle</parameter>
+      <parameter key="sosFSOGRHBundle">sosFSO\GRHBundle\sosFSOGRHBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -30,7 +31,7 @@
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">sosFSO_Hr</parameter>
+    <parameter key="database_name">sosFSO</parameter>
     <parameter key="database_user">root</parameter>
     <parameter key="database_password">salhi1983</parameter>
     <parameter key="mailer_transport">smtp</parameter>
@@ -412,11 +413,13 @@
     <parameter key="doctrine.class">Doctrine\Bundle\DoctrineBundle\Registry</parameter>
     <parameter key="doctrine.entity_managers" type="collection">
       <parameter key="default">doctrine.orm.default_entity_manager</parameter>
+      <parameter key="grh">doctrine.orm.grh_entity_manager</parameter>
     </parameter>
     <parameter key="doctrine.default_entity_manager">default</parameter>
     <parameter key="doctrine.dbal.connection_factory.types" type="collection"/>
     <parameter key="doctrine.connections" type="collection">
       <parameter key="default">doctrine.dbal.default_connection</parameter>
+      <parameter key="grh">doctrine.dbal.grh_connection</parameter>
     </parameter>
     <parameter key="doctrine.default_connection">default</parameter>
     <parameter key="doctrine.orm.configuration.class">Doctrine\ORM\Configuration</parameter>
@@ -453,7 +456,7 @@
     <parameter key="doctrine.orm.listeners.resolve_target_entity.class">Doctrine\ORM\Tools\ResolveTargetEntityListener</parameter>
     <parameter key="doctrine.orm.naming_strategy.default.class">Doctrine\ORM\Mapping\DefaultNamingStrategy</parameter>
     <parameter key="doctrine.orm.naming_strategy.underscore.class">Doctrine\ORM\Mapping\UnderscoreNamingStrategy</parameter>
-    <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
+    <parameter key="doctrine.orm.auto_generate_proxy_classes">false</parameter>
     <parameter key="doctrine.orm.proxy_dir">/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
@@ -483,8 +486,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_51508efb6ccc0.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="security.secured_services" type="collection"/>
     <parameter key="security.access.method_interceptor.class">JMS\SecurityExtraBundle\Security\Authorization\Interception\MethodSecurityInterceptor</parameter>
     <parameter key="security.access.method_access_control" type="collection"/>
@@ -1564,6 +1567,10 @@
               <argument>default</argument>
               <argument type="service" id="doctrine.dbal.logger.profiling.default"/>
             </call>
+            <call method="addLogger">
+              <argument>grh</argument>
+              <argument type="service" id="doctrine.dbal.logger.profiling.grh"/>
+            </call>
           </service>
         </argument>
       </call>
@@ -2276,6 +2283,11 @@
     <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
       <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
     </service>
+    <service id="doctrine.dbal.logger" class="Symfony\Bridge\Doctrine\Logger\DbalLogger" public="false">
+      <tag name="monolog.logger" channel="doctrine"/>
+      <argument type="service" id="monolog.logger.doctrine"/>
+      <argument type="service" id="debug.stopwatch"/>
+    </service>
     <service id="doctrine.dbal.connection_factory" class="Doctrine\Bundle\DoctrineBundle\ConnectionFactory">
       <argument type="collection"/>
     </service>
@@ -2283,9 +2295,11 @@
       <argument type="service" id="service_container"/>
       <argument type="collection">
         <argument key="default">doctrine.dbal.default_connection</argument>
+        <argument key="grh">doctrine.dbal.grh_connection</argument>
       </argument>
       <argument type="collection">
         <argument key="default">doctrine.orm.default_entity_manager</argument>
+        <argument key="grh">doctrine.orm.grh_entity_manager</argument>
       </argument>
       <argument>default</argument>
       <argument>default</argument>
@@ -2293,7 +2307,7 @@
     <service id="doctrine.dbal.logger.profiling.default" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
     <service id="doctrine.dbal.default_connection" class="stdClass" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
       <argument type="collection">
-        <argument key="dbname">sosFSO_Hr</argument>
+        <argument key="dbname">sosFSO</argument>
         <argument key="host">127.0.0.1</argument>
         <argument key="port">null</argument>
         <argument key="user">root</argument>
@@ -2308,16 +2322,45 @@
             <argument type="service">
               <service class="Doctrine\DBAL\Logging\LoggerChain" public="false">
                 <call method="addLogger">
-                  <argument type="service">
-                    <service class="Symfony\Bridge\Doctrine\Logger\DbalLogger" public="false">
-                      <tag name="monolog.logger" channel="doctrine"/>
-                      <argument type="service" id="monolog.logger.doctrine"/>
-                      <argument type="service" id="debug.stopwatch"/>
-                    </service>
-                  </argument>
+                  <argument type="service" id="doctrine.dbal.logger"/>
                 </call>
                 <call method="addLogger">
                   <argument type="service" id="doctrine.dbal.logger.profiling.default"/>
+                </call>
+              </service>
+            </argument>
+          </call>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="Symfony\Bridge\Doctrine\ContainerAwareEventManager" public="false">
+          <argument type="service" id="service_container"/>
+        </service>
+      </argument>
+      <argument type="collection"/>
+    </service>
+    <service id="doctrine.dbal.logger.profiling.grh" class="Doctrine\DBAL\Logging\DebugStack" public="false"/>
+    <service id="doctrine.dbal.grh_connection" class="stdClass" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
+      <argument type="collection">
+        <argument key="dbname">sosFSO_GRH</argument>
+        <argument key="host">127.0.0.1</argument>
+        <argument key="port">null</argument>
+        <argument key="user">root</argument>
+        <argument key="password">salhi1983</argument>
+        <argument key="charset">UTF8</argument>
+        <argument key="driver">pdo_mysql</argument>
+        <argument key="driverOptions" type="collection"/>
+      </argument>
+      <argument type="service">
+        <service class="Doctrine\DBAL\Configuration" public="false">
+          <call method="setSQLLogger">
+            <argument type="service">
+              <service class="Doctrine\DBAL\Logging\LoggerChain" public="false">
+                <call method="addLogger">
+                  <argument type="service" id="doctrine.dbal.logger"/>
+                </call>
+                <call method="addLogger">
+                  <argument type="service" id="doctrine.dbal.logger.profiling.grh"/>
                 </call>
               </service>
             </argument>
@@ -2347,11 +2390,12 @@
       <tag name="validator.initializer"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="doctrine.orm.naming_strategy.default" class="Doctrine\ORM\Mapping\DefaultNamingStrategy" public="false"/>
     <service id="doctrine.orm.default_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager514c9b0d4fb2b_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_514c9b0d4fb2b.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_51508efb6ccc0.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>
@@ -2413,7 +2457,7 @@
                 <argument>Proxies</argument>
               </call>
               <call method="setAutoGenerateProxyClasses">
-                <argument>true</argument>
+                <argument>false</argument>
               </call>
               <call method="setClassMetadataFactoryName">
                 <argument>Doctrine\ORM\Mapping\ClassMetadataFactory</argument>
@@ -2422,13 +2466,95 @@
                 <argument>Doctrine\ORM\EntityRepository</argument>
               </call>
               <call method="setNamingStrategy">
-                <argument type="service">
-                  <service class="Doctrine\ORM\Mapping\DefaultNamingStrategy" public="false"/>
-                </argument>
+                <argument type="service" id="doctrine.orm.naming_strategy.default"/>
               </call>
             </service>
           </argument>
           <configurator service="doctrine.orm.default_manager_configurator" method="configure"/>
+        </service>
+      </argument>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="doctrine.orm.grh_manager_configurator" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator">
+      <argument type="collection"/>
+    </service>
+    <service id="doctrine.orm.grh_entity_manager" class="EntityManager51508efb6ccc0_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/jms_diextra/doctrine/EntityManager_51508efb6ccc0.php</file>
+      <argument type="service">
+        <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
+          <argument type="service" id="doctrine.dbal.grh_connection"/>
+          <argument type="service">
+            <service class="Doctrine\ORM\Configuration" public="false">
+              <call method="setEntityNamespaces">
+                <argument type="collection">
+                  <argument key="sosFSOGRHBundle">sosFSO\GRHBundle\Entity</argument>
+                </argument>
+              </call>
+              <call method="setMetadataCacheImpl">
+                <argument type="service">
+                  <service class="Doctrine\Common\Cache\ArrayCache" public="false">
+                    <call method="setNamespace">
+                      <argument>sf2orm_grh_c303fad6d2beaee3801eb6d18bbe7e4e</argument>
+                    </call>
+                  </service>
+                </argument>
+              </call>
+              <call method="setQueryCacheImpl">
+                <argument type="service">
+                  <service class="Doctrine\Common\Cache\ArrayCache" public="false">
+                    <call method="setNamespace">
+                      <argument>sf2orm_grh_c303fad6d2beaee3801eb6d18bbe7e4e</argument>
+                    </call>
+                  </service>
+                </argument>
+              </call>
+              <call method="setResultCacheImpl">
+                <argument type="service">
+                  <service class="Doctrine\Common\Cache\ArrayCache" public="false">
+                    <call method="setNamespace">
+                      <argument>sf2orm_grh_c303fad6d2beaee3801eb6d18bbe7e4e</argument>
+                    </call>
+                  </service>
+                </argument>
+              </call>
+              <call method="setMetadataDriverImpl">
+                <argument type="service">
+                  <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                    <call method="addDriver">
+                      <argument type="service">
+                        <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                          <argument type="service" id="annotation_reader"/>
+                          <argument type="collection">
+                            <argument>/home/abdel/NetBeansProjects/sosFSO/src/sosFSO/GRHBundle/Entity</argument>
+                          </argument>
+                        </service>
+                      </argument>
+                      <argument>sosFSO\GRHBundle\Entity</argument>
+                    </call>
+                  </service>
+                </argument>
+              </call>
+              <call method="setProxyDir">
+                <argument>/home/abdel/NetBeansProjects/sosFSO/app/cache/dev/doctrine/orm/Proxies</argument>
+              </call>
+              <call method="setProxyNamespace">
+                <argument>Proxies</argument>
+              </call>
+              <call method="setAutoGenerateProxyClasses">
+                <argument>false</argument>
+              </call>
+              <call method="setClassMetadataFactoryName">
+                <argument>Doctrine\ORM\Mapping\ClassMetadataFactory</argument>
+              </call>
+              <call method="setDefaultRepositoryClassName">
+                <argument>Doctrine\ORM\EntityRepository</argument>
+              </call>
+              <call method="setNamingStrategy">
+                <argument type="service" id="doctrine.orm.naming_strategy.default"/>
+              </call>
+            </service>
+          </argument>
+          <configurator service="doctrine.orm.grh_manager_configurator" method="configure"/>
         </service>
       </argument>
       <argument type="service" id="service_container"/>
@@ -3078,6 +3204,10 @@
       <call method="addPath">
         <argument>/home/abdel/NetBeansProjects/sosFSO/vendor/genemu/form-bundle/Genemu/Bundle/FormBundle/Resources/views</argument>
         <argument>GenemuForm</argument>
+      </call>
+      <call method="addPath">
+        <argument>/home/abdel/NetBeansProjects/sosFSO/src/sosFSO/GRHBundle/Resources/views</argument>
+        <argument>sosFSOGRH</argument>
       </call>
       <call method="addPath">
         <argument>/home/abdel/NetBeansProjects/sosFSO/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>

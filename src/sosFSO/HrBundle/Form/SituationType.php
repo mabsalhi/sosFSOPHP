@@ -13,11 +13,7 @@ class SituationType extends AbstractType
         $builder
             ->add('echelon')
             ->add('numeroInference')
-            ->add('dateEffets','date',array(
-	            'widget' => 'single_text',
-	            'format' => 'dd-MM-yyyy',
-	            'attr' => array('class' => 'date')
-	        ))
+            ->add('dateEffets')
             ->add('remarques')
             ->add('cadre')
         ;

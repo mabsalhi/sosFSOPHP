@@ -11,19 +11,12 @@ class AffectationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateAffectation','date',array(
-	            'widget' => 'single_text',
-	            'format' => 'dd-MM-yyyy',
-	            'attr' => array('class' => 'date')
-	        ))
+            ->add('dateAffectation')
             ->add('poste')
-            ->add('dateDetachement','date',array(
-	            'widget' => 'single_text',
-	            'format' => 'dd-MM-yyyy',
-	            'attr' => array('class' => 'date')
-	        ))
+            ->add('dateDetachement')
             ->add('remarques')
             ->add('personne')
+            ->add('service')
         ;
     }
 

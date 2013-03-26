@@ -85,7 +85,7 @@ class PersonneController extends Controller
      *
      * @Route("/{id}", name="personne_show")
      * @Method("GET")
-     * @Template("sosFSOHrBundle:Personne:information.html.twig")
+     * @Template()
      */
     public function showAction($id)
     {
@@ -206,10 +206,5 @@ class PersonneController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
-    }
-    
-    public function updateDataAction(){
-        $request = $this->container->get('request');
-        
     }
 }

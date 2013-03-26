@@ -50,7 +50,7 @@ class Affectation
     private $remarques;
 
      /**
-     * @ORM\ManyToOne(targetEntity="Personne", inversedBy="affectation")
+     * @ORM\OneToOne(targetEntity="Personne", inversedBy="affectation")
      * @ORM\JoinColumn(name="personne_id", referencedColumnName="id")
      **/
     private $personne;
@@ -224,5 +224,18 @@ class Affectation
     public function getService()
     {
         return $this->service;
+    }
+
+    /**
+     * Set service
+     *
+     * @param \sosFSO\HrBundle\Entity\Service $service
+     * @return Affectation
+     */
+    public function setService(\sosFSO\HrBundle\Entity\Service $service = null)
+    {
+        $this->service = $service;
+    
+        return $this;
     }
 }

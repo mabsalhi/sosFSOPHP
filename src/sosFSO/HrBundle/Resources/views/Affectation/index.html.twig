@@ -11,7 +11,6 @@
                 <th>Poste</th>
                 <th>Datedetachement</th>
                 <th>Remarques</th>
-                <th>Personne</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,8 +22,6 @@
                 <td>{{ entity.poste }}</td>
                 <td>{% if entity.dateDetachement %}{{ entity.dateDetachement|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.remarques }}</td>
-                <td>{{ entity.Personne.nom }} {{ entity.Personne.prenom }}</td>
-
                 <td>
                 <ul>
                     <li>
