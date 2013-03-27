@@ -36,10 +36,9 @@ class Service
     private $description;
 
      /**
-     * @ORM\OneToOne(targetEntity="Affectation", inversedBy="service")
-     * @ORM\JoinColumn(name="affectation_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Affectation", mappedBy="service")
      **/
-    private $membre;
+    private $membres;
     
     /**
      * Get id
@@ -118,5 +117,45 @@ class Service
     public function getMembre()
     {
         return $this->membre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->membres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add membres
+     *
+     * @param \sosFSO\GRHBundle\Entity\Affectation $membres
+     * @return Service
+     */
+    public function addMembre(\sosFSO\GRHBundle\Entity\Affectation $membres)
+    {
+        $this->membres[] = $membres;
+    
+        return $this;
+    }
+
+    /**
+     * Remove membres
+     *
+     * @param \sosFSO\GRHBundle\Entity\Affectation $membres
+     */
+    public function removeMembre(\sosFSO\GRHBundle\Entity\Affectation $membres)
+    {
+        $this->membres->removeElement($membres);
+    }
+
+    /**
+     * Get membres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMembres()
+    {
+        return $this->membres;
     }
 }

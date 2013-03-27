@@ -143,14 +143,23 @@ class Personne
     private $diplomes;
     
     /**
-     * @ORM\ManyToMany(targetEntity="situation")
+     * @ORM\ManyToMany(targetEntity="Situation")
      * @ORM\JoinTable(name="situations_personne",
      *      joinColumns={@ORM\JoinColumn(name="personne_id", referencedColumnName="id")},
      *      inverseJoinColumns={@ORM\JoinColumn(name="situation_id", referencedColumnName="id", unique=true)}
      *      )
      **/
     private $situations;
-
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Affectation")
+     * @ORM\JoinTable(name="affectations_Personne",
+     *      joinColumns={@ORM\JoinColumn(name="personne_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="affectation_id", referencedColumnName="id", unique=true)}
+     *      )
+     **/
+    private $affectations;
+    
     /**
      * Get id
      *
@@ -601,5 +610,38 @@ class Personne
     public function getSituations()
     {
         return $this->situations;
+    }
+
+    /**
+     * Add affectations
+     *
+     * @param \sosFSO\GRHBundle\Entity\Affectation $affectations
+     * @return Personne
+     */
+    public function addAffectation(\sosFSO\GRHBundle\Entity\Affectation $affectations)
+    {
+        $this->affectations[] = $affectations;
+    
+        return $this;
+    }
+
+    /**
+     * Remove affectations
+     *
+     * @param \sosFSO\GRHBundle\Entity\Affectation $affectations
+     */
+    public function removeAffectation(\sosFSO\GRHBundle\Entity\Affectation $affectations)
+    {
+        $this->affectations->removeElement($affectations);
+    }
+
+    /**
+     * Get affectations
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAffectations()
+    {
+        return $this->affectations;
     }
 }

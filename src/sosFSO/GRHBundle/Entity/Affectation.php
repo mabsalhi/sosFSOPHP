@@ -50,7 +50,8 @@ class Affectation
     private $remarques;
 
     /**
-     * @ORM\OneToOne(targetEntity="Service", mappedBy="staff")
+     * @ORM\ManyToOne(targetEntity="Service", inversedBy="membres")
+     * @ORM\JoinColumn(name="service_id", referencedColumnName="id")
      **/
     private $service;    
     
