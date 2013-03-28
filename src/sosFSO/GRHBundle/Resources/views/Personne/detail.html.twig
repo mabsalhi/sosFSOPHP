@@ -1,0 +1,13 @@
+{# empty Twig template #}
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+Detail de la personne
+{% for entity in entities %}
+<section class="sepia">
+    <div class="span2">Nom de la personne :{{ entity.nom }}</div>
+    <div class="span2">Prenom de la personne :{{ entity.prenom }}</div>
+    <div class="span2">C.I.N : {{ entity.cin }}</div>
+</section>
+{% endfor %}
+{% endblock %}

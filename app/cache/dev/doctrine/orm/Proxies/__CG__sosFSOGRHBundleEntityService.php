@@ -87,10 +87,28 @@ class Service extends \sosFSO\GRHBundle\Entity\Service implements \Doctrine\ORM\
         return parent::getMembre();
     }
 
+    public function addMembre(\sosFSO\GRHBundle\Entity\Affectation $membres)
+    {
+        $this->__load();
+        return parent::addMembre($membres);
+    }
+
+    public function removeMembre(\sosFSO\GRHBundle\Entity\Affectation $membres)
+    {
+        $this->__load();
+        return parent::removeMembre($membres);
+    }
+
+    public function getMembres()
+    {
+        $this->__load();
+        return parent::getMembres();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'intitule', 'description', 'membre');
+        return array('__isInitialized__', 'id', 'intitule', 'description', 'membres');
     }
 
     public function __clone()

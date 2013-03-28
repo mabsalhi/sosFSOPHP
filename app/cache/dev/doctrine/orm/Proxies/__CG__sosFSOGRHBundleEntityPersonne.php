@@ -279,10 +279,28 @@ class Personne extends \sosFSO\GRHBundle\Entity\Personne implements \Doctrine\OR
         return parent::getSituations();
     }
 
+    public function addAffectation(\sosFSO\GRHBundle\Entity\Affectation $affectations)
+    {
+        $this->__load();
+        return parent::addAffectation($affectations);
+    }
+
+    public function removeAffectation(\sosFSO\GRHBundle\Entity\Affectation $affectations)
+    {
+        $this->__load();
+        return parent::removeAffectation($affectations);
+    }
+
+    public function getAffectations()
+    {
+        $this->__load();
+        return parent::getAffectations();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nom', 'prenom', 'nomAr', 'prenomAr', 'cin', 'som', 'posteBudgetaire', 'dateNaissance', 'lieuNaissance', 'etatMatrimonial', 'sexe', 'nbEnfants', 'adresse', 'numTelephonne', 'dateRecrutement', 'photo', 'diplomes', 'situations');
+        return array('__isInitialized__', 'id', 'nom', 'prenom', 'nomAr', 'prenomAr', 'cin', 'som', 'posteBudgetaire', 'dateNaissance', 'lieuNaissance', 'etatMatrimonial', 'sexe', 'nbEnfants', 'adresse', 'numTelephonne', 'dateRecrutement', 'photo', 'diplomes', 'situations', 'affectations');
     }
 
     public function __clone()
