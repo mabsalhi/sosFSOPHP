@@ -70,7 +70,7 @@ doctrine:
             default:
                 connection:       default
                 mappings:
-                    sosFSOHrBundle: ~
+                    sosFSOGRHBundle: ~
             grh:
                 connection:       grh
                 mappings:

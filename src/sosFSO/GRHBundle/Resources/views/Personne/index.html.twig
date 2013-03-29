@@ -1,13 +1,71 @@
-{# empty Twig template #}
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-Liste des personnes
-{% for entity in entities %}
-<section class="sepia">
-    <div class="span2">Nom de la personne :{{ entity.nom }}</div>
-    <div class="span2">Prenom de la personne :{{ entity.prenom }}</div>
-    <div class="span2">C.I.N : {{ entity.cin }}</div>
-</section>
-{% endfor %}
-{% endblock %}
+    <h1>Personne list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Nomar</th>
+                <th>Prenomar</th>
+                <th>Cin</th>
+                <th>Som</th>
+                <th>Postebudgetaire</th>
+                <th>Datenaissance</th>
+                <th>Lieunaissance</th>
+                <th>Etatmatrimonial</th>
+                <th>Sexe</th>
+                <th>Nbenfants</th>
+                <th>Adresse</th>
+                <th>Numtelephonne</th>
+                <th>Daterecrutement</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('personne_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.nomAr }}</td>
+                <td>{{ entity.prenomAr }}</td>
+                <td>{{ entity.cin }}</td>
+                <td>{{ entity.som }}</td>
+                <td>{{ entity.posteBudgetaire }}</td>
+                <td>{% if entity.dateNaissance %}{{ entity.dateNaissance|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.lieuNaissance }}</td>
+                <td>{{ entity.etatMatrimonial }}</td>
+                <td>{{ entity.sexe }}</td>
+                <td>{{ entity.nbEnfants }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.numTelephonne }}</td>
+                <td>{% if entity.dateRecrutement %}{{ entity.dateRecrutement|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.photo }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('personne_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('personne_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('personne_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

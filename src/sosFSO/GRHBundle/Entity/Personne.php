@@ -66,7 +66,7 @@ class Personne
     /**
      * @var integer
      *
-     * @ORM\Column(name="posteBudgetaire", type="integer")
+     * @ORM\Column(name="posteBudgetaire", nullable = true, type="integer")
      */
     private $posteBudgetaire;
 
@@ -87,7 +87,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="etatMatrimonial", type="string", length=255)
+     * @ORM\Column(name="etatMatrimonial", nullable = true, type="string", length=255)
      */
     private $etatMatrimonial;
 
@@ -101,21 +101,21 @@ class Personne
     /**
      * @var integer
      *
-     * @ORM\Column(name="nbEnfants", type="integer")
+     * @ORM\Column(name="nbEnfants", nullable = true, type="integer")
      */
     private $nbEnfants;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="adresse", type="text")
+     * @ORM\Column(name="adresse", nullable = true, type="text")
      */
     private $adresse;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="numTelephonne", type="integer")
+     * @ORM\Column(name="numTelephonne", nullable = true, type="integer")
      */
     private $numTelephonne;
 
@@ -129,7 +129,7 @@ class Personne
     /**
      * @var string
      *
-     * @ORM\Column(name="photo", type="blob")
+     * @ORM\Column(name="photo", nullable = true, type="blob")
      */
     private $photo;
 

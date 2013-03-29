@@ -3,8 +3,3 @@ sos_fsogrh:
     type:     annotation
     prefix:   /
 
-sos_fso_hr:
-    resource: "@sosFSOHrBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
